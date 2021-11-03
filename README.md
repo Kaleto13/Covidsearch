@@ -1,3 +1,3 @@
 # Covidsearch
-USM TE QUEREMOS MUCHO
+USM TE QUEREMOS MU*guaj*chh*guaj*
 
