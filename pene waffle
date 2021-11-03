@@ -1,3 +1,0 @@
-waffle = true
-while waffle:
-  print("pene waffle")
