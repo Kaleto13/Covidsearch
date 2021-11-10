@@ -1,5 +1,9 @@
 # Covidsearch
-HOY, Y SOLO HOY! 4000 PESOS DE DESCUENTO EN UBER EATS USANDO EL CODIGO ;USM20002K21;
-2000 pesos de descuento en sus proximas 2 compras sobre 8000 en uber eats (costo de envio no incluido)
-SOLO PARA TI :D
+En Construcción
+
+- Seguir averiguando acerca de DJANGO y lo que pued ehacer para facilitarnos el proyecto
+- Aprender HTML y CSS a medias para tener noción acerca de qué modificar
+- Lograr tener una plantilla lista con el diseño para su creación y/o manipulación
+
+Si se logra los 3 puntos, se modifica este README
 
