@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.template import Template, Context
 import os
 
-
 d = "/".join(os.getcwd().split("\\"))
 
 def saludo(request):
