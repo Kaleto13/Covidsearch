@@ -1,4 +1,3 @@
-from django import template
 from django.http import HttpResponse
 from django.template import Template, Context
 import os
