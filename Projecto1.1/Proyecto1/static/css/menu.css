@@ -34,8 +34,8 @@
 .barra h2{
     text-align: center;
     color: white;
-    padding: 7px;
-    padding-bottom: 2px;
+    padding: 0px;
+    padding-bottom: 0px;
 
     font-size: 0px;
 }
@@ -46,10 +46,10 @@
 }
 
 .barra:hover{
-    width: 70%;
+    width: 20%;
     height: 100%;
 
-    background-color: rgba(5, 33, 51, 0.98)
+    background-color:#55286f;
 }
 
 .barra:hover h2{
