@@ -19,7 +19,7 @@ from Proyecto1.view import saludo, defecto, default
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saludo/', saludo),
-    path('', defecto),
+    path('saludo/', defecto),
+    path('', saludo),
     path('saludo/default.asp', default)
 ] 
