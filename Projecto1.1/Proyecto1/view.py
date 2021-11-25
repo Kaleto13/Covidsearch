@@ -10,8 +10,8 @@ def saludo(request):
   Documento_Ext.close()
   return HttpResponse(Plantilla.render(Context()))
 
-def default(request):
-  with open(d + "/Proyecto1/plantilas/default.html") as Documento_Ext:
+def Principal(request):
+  with open(d + "/Proyecto1/plantilas/Principal.html") as Documento_Ext:
     Plantilla = Template(Documento_Ext.read())
   Documento_Ext.close()
   return HttpResponse(Plantilla.render(Context()))
