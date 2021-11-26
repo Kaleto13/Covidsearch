@@ -1,10 +1,10 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content= "widht=device-width, initial-scale=1.0">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
     <title>CovidSearchCL</title>
     <link rel="stylesheet" href = "{% static 'css/sidemenu.css'%}">
 
@@ -22,17 +22,18 @@
             </div>
         </div>
 
-    <!-- PROFILE 
-
-        <div id="profile">
-            <div id="photo"><img src= "{% static 'imagenes/vacuna.png' %}" alt=""></div>
-            <div id="name"><span>Bruh</span></div>
-        </div>
-    -->
-
     <!-- ITEMS -->
 
         <div id="menu-items">
+
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src= "{% static 'imagenes/stats.png' %}" alt=""></div>
+                    <div class="title"><span>Estadísticas</span></div>
+                </a>
+            </div>
+
+
             <div class="item">
                 <a href="#">
                     <div class="icon"><img src= "{% static 'imagenes/vacuna.png' %}" alt=""></div>
@@ -44,24 +45,25 @@
 
             <div class="item">
                 <a href="#">
-                    <div class="icon"><img src= "{% static 'imagenes/vacuna.png' %}" alt=""></div>
-                    <div class="title"><span>Servicios</span></div>
+                    <div class="icon"><img src= "{% static 'imagenes/contact.png' %}" alt=""></div>
+                    <div class="title"><span>Contacto</span></div>
                 </a>
             </div>
+
+            <div class="item separator"></div>
         </div>
     </div>
 
     <div id="main-container">
-        Hola a todos
+        Hola, como están
     </div>
 
     <script>
         const btn = document.querySelector('#menu-btn')
         const menu = document.querySelector('#sidemenu')
-        btn.addEventListener('click', e {
+        btn.addEventListener('click', e => {
             menu.classList.toggle("menu-expanded");
             menu.classList.toggle("menu-collapsed");
-
             document.querySelector('body').classList.toggle('body-expanded')
         })
     </script>

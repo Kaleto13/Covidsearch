@@ -1,16 +1,16 @@
 :root{
-    --width: 300px;
+    --width: 240px;
     --padding: 10px;
-    --bgcolor: rgb(52,52,52);
-    --hovercolor: rgb(23,23,23);
+    --bgcolor: #55286f;
+    --hovercolor: rgb(185, 185, 185);
     --width-collapsed: 50px;
 }
 body{
-    background-color: #032c55;
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    padding: 0;
-    margin: 0;
+    font-size: 15px;
+    padding: 10px;
+    margin: 5px;
     margin-left: var(--width-collapsed);
 }
 
@@ -19,7 +19,7 @@ body{
 }
 
 #main-container{
-    color: white;
+    color: black;
 }
 
 #sidemenu{
@@ -29,6 +29,7 @@ body{
     height: 100%;
     left: 0;
     top: 0;
+    transition: .3s all;
 }
 
 #sidemenu a{
@@ -60,7 +61,7 @@ body{
 
 #sidemenu #header #menu-btn{
     cursor: pointer;
-    padding: 10px;
+    padding: 12px;
     width: var(--width-collapsed);
     box-sizing: border-box;
 }
@@ -72,8 +73,8 @@ body{
 #sidemenu #header #menu-btn .btn-hamburger{
     background-color: #fff;
     width: 100%;
-    height: 2px;
-    margin: 5px 0;
+    height: 3px;
+    margin: 6px 0;
 }
 
 /*
@@ -121,7 +122,7 @@ body{
 }
 
 #sidemenu #menu-items .item .icon, #sidemenu #menu-items .item .title{
-    font-size: 14px;
+    font-size: 16px;
     vertical-align: middle;
     overflow: hidden;
     display: inline-block;
@@ -152,7 +153,7 @@ body{
 #sidemenu #menu-items .item.separator{
     height: 1px;
     border-bottom: solid 1px var(--hovercolor);
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .menu-expanded{
@@ -167,23 +168,14 @@ body{
     padding: var(--padding);
 }
 
-.menu-expanded #header #title span{
+/*
+    Pendiente
+*/
+
+#menu-expanded #header #title span{
     width: calc(var(--width) - var(--width-collapsed) - 5px);
     overflow: hidden;
-    display: inline-block;
 }
-
-/*
-.menu-expanded #profile #photo{
-    width: 200px;
-
-}
-
-.menu-expanded #profile #name{
-    width: 100%;
-}
-
-*/
 
 .menu-collapsed{
     width: var(--width-collapsed);
@@ -195,14 +187,6 @@ body{
     padding: 0;
     margin: 0;
 }
-
-/*
-.menu-collapsed #profile #photo{
-    width: none;
-
-}
-
-*/
 
 .menu-collapsed .item{
     width: 100px;
