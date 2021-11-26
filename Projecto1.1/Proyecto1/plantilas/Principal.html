@@ -6,66 +6,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content= "width=device-width, initial-scale=1.0">
     <title>CovidSearchCL</title>
-    <link rel="stylesheet" href = "{% static 'css/sidemenu.css'%}">
-
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href = "{% static 'css/sidemenu2.css'%}">
 </head>
 
 <body>
-    <div id="sidemenu" class="menu-collapsed">
-    <!-- HEADER -->
-        <div id = "header">
-            <div id="title"><span>CovidSearchCL</span></div>
-            <div id="menu-btn">
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bx-food-menu'></i>
+                <div class="logo_name">USM_Covid19</div>
             </div>
+            <i class='bx bx-menu' id="btn"></i>
         </div>
+        <ul class="nav_list">
+            <li>
 
-    <!-- ITEMS -->
-
-        <div id="menu-items">
-
-            <div class="item">
+                <!-- Lista de elementos -->
                 <a href="#">
-                    <div class="icon"><img src= "{% static 'imagenes/stats.png' %}" alt=""></div>
-                    <div class="title"><span>Estadísticas</span></div>
+                    <i class='bx bx-stats' ></i>
+                    <span class= "links_name">Estadisticas</span>
                 </a>
-            </div>
-
-
-            <div class="item">
+                <span class= "tooltip">Estadisticas</span>
+            </li>
+            <li>
                 <a href="#">
-                    <div class="icon"><img src= "{% static 'imagenes/vacuna.png' %}" alt=""></div>
-                    <div class="title"><span>Servicios</span></div>
+                    <i class='bx bxs-contact' ></i>
+                    <span class= "links_name">Contacto</span>
                 </a>
-            </div>
-
-            <div class="item separator"></div>
-
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><img src= "{% static 'imagenes/contact.png' %}" alt=""></div>
-                    <div class="title"><span>Contacto</span></div>
-                </a>
-            </div>
-
-            <div class="item separator"></div>
-        </div>
+                <span class= "tooltip">Contacto</span>
+            </li>
+        </ul>
     </div>
-
-    <div id="main-container">
-        Hola, como están
+    <div class="home_content">
+        <div class="text">Home Content</div>
     </div>
 
     <script>
-        const btn = document.querySelector('#menu-btn')
-        const menu = document.querySelector('#sidemenu')
-        btn.addEventListener('click', e => {
-            menu.classList.toggle("menu-expanded");
-            menu.classList.toggle("menu-collapsed");
-            document.querySelector('body').classList.toggle('body-expanded')
-        })
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        btn.onclick = function(){
+            sidebar.classList.toggle("active");
+        }
     </script>
 </body>
 </html>
