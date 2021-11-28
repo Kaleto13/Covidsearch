@@ -5,29 +5,25 @@
     font-family: Arial, Helvetica, sans-serif;
 
 }
-
 body{
     position: relative;
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
 }
-
 .sidebar{
     position: fixed;
     height: 100%;
     top: 0;
     left: 0;
-    width: 78px;
+    width: 80px;
     background: #11101d;
     padding: 6px 14px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
-
 .sidebar.active{
     width: 240px;
 }
-
 .sidebar .logo_content .logo{
     color: #fff;
     display: flex;
@@ -38,22 +34,19 @@ body{
     pointer-events: none;
     transform: all 0.5s ease;
 }
-
 .sidebar.active .logo_content .logo{
     opacity: 1;
     pointer-events: none;
 }
-
 .logo_content .logo i{
     font-size: 28px;
-    margin-right: 5px;
+    margin-right: 4px;
 }
-
 .logo_content .logo .logo_name{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
+    transition: all 0.2s ease;
 }
-
 .sidebar #btn{
     position: absolute;
     color: #fff;
@@ -66,15 +59,12 @@ body{
     line-height: 50px;
     transform: translateX(-50%);
 }
-
 .sidebar.active #btn{
     left: 90%
 }
-
 .sidebar ul{
     margin-top: 20px;
 }
-
 .sidebar ul li{
     list-style: none;
     height: 50px;
@@ -83,7 +73,6 @@ body{
     width: 100%;
     line-height: 50px;
 }
-
 .sidebar ul li .tooltip{
     position: absolute;
     left: 122px;
@@ -101,37 +90,31 @@ body{
     pointer-events: none;
     display: block;
 }
-
 .sidebar.active ul li .tooltip{
     display: none;
 }
-
 .sidebar ul li:hover .tooltip{
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     opacity: 1;
     top: 50%;
 }
-
 .sidebar.active ul li .tooltip{
     display: none;
 }
-
 .sidebar ul li a{
     color: #fff;
     display: flex;
     align-items: center;
     text-decoration: none;
     border-radius: 12px;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     white-space: nowrap;
 
 }
-
 .sidebar ul li a:hover{
     color: #11101d;
     background-color: #fff;
 }
-
 .sidebar ul li i{
     height: 50px;
     min-width: 50px;
@@ -139,36 +122,47 @@ body{
     line-height: 50px;
     text-align: center;
 }
-
 .sidebar.active .links_name{
     opacity: 1;
     pointer-events: auto;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
-
 .sidebar .links_name{
     opacity: 0;
     pointer-events: none;
 }
-
 .home_content{
     position: absolute;
     height: 100%;
     width: calc(100% - 78px);
     left: 78px;
-    transition: all 0.5 ease;
+    transition: all 0.3s ease;
+    overflow: auto;
 }
-
-.home_content .text{
-    font-size: 20px;
+.home_content .titulo{
+    font-size: 40px;
     font-weight: 500;
     color: black;
-    margin: 12px;
-
+    text-align: center;
+ 
 }
-
 .sidebar.active ~ .home_content{
     width: calc(100% - 240px);
     left: 240px;
+}
+.home_content .mapa{
+    width: 25%;
+    margin: auto;
+}
 
+.home_content .mapa path{
+    width: 25%;
+    margin: auto;
+    stroke: #eee;
+    stroke-width: .25;
+}
+.home_content .mapa path:hover{
+    fill: #006284;
+    transition: 0.3s;
+    cursor: pointer;
 }
