@@ -1,9 +1,10 @@
 # Covidsearch
 En Construcción
 
-- Seguir averiguando acerca de DJANGO y lo que pued ehacer para facilitarnos el proyecto
-- Aprender HTML y CSS a medias para tener noción acerca de qué modificar
-- Lograr tener una plantilla lista con el diseño para su creación y/o manipulación
+- Implementación del mapa principal
+- Implementación de las gráficas necesarias para el proyecto
+- Implementación de las funciones necesarias para el proyecto
+- Modificación de la plantilla
 
-Si se logra los 3 puntos, se modifica este README
+Si se logra los 4 puntos, se modifica este README
 
