@@ -6,5 +6,5 @@ En Construcción
 - Implementación de las funciones necesarias para el proyecto
 - Modificación de la plantilla
 
-Si se logra los 3 puntos, se modifica este README
+Si se logra los 4 puntos, se modifica este README
 
