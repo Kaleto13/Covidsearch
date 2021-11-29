@@ -74,6 +74,7 @@ body{
     line-height: 50px;
 }
 .sidebar ul li .tooltip{
+    color: #fff;
     position: absolute;
     left: 122px;
     top: 0;
@@ -81,7 +82,7 @@ body{
     border-radius: 6px;
     height: 35px;
     width: 122px;
-    background: #fff;
+    background: rgb(0, 0, 0);
     line-height: 35px;
     text-align: center;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
