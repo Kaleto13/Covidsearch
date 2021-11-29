@@ -43,7 +43,7 @@ body{
     margin-right: 4px;
 }
 .logo_content .logo .logo_name{
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 400;
     transition: all 0.2s ease;
 }
@@ -153,6 +153,7 @@ body{
 .home_content .mapa{
     width: 25%;
     margin: auto;
+    size: 100%;
 }
 
 .home_content .mapa path{
