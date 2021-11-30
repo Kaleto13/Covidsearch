@@ -11,6 +11,7 @@ body{
     width: 100%;
     overflow: hidden;
 }
+/* Todo relacionado a la barra lateral */
 .sidebar{
     position: fixed;
     height: 100%;
@@ -32,7 +33,6 @@ body{
     align-items: center;
     opacity: 0;
     pointer-events: none;
-    transform: all 0.5s ease;
 }
 .sidebar.active .logo_content .logo{
     opacity: 1;
@@ -45,7 +45,6 @@ body{
 .logo_content .logo .logo_name{
     font-size: 18px;
     font-weight: 400;
-    transition: all 0.2s ease;
 }
 .sidebar #btn{
     position: absolute;
@@ -131,39 +130,44 @@ body{
     opacity: 0;
     pointer-events: none;
 }
-.home_content{
-    position: absolute;
-    height: 100%;
-    width: calc(100% - 78px);
-    left: 78px;
-    transition: all 0.3s ease;
-    overflow: auto;
-}
-.home_content .titulo{
-    font-size: 40px;
-    font-weight: 500;
-    color: black;
-    text-align: center;
- 
-}
 .sidebar.active ~ .home_content{
     width: calc(100% - 240px);
     left: 240px;
 }
-.home_content .mapa{
-    width: 25%;
-    margin: auto;
-    size: 100%;
+/* Todo relacionado al contenido principal */
+.home_content{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 105px);
+    left: 95px;
+    transition: all 0.3s ease;
+    overflow: auto;
 }
-
+.home_content .titulo{
+    position: absolute;
+    font-size: 38px;
+    font-weight: 500;
+    color: black;
+    left: 50%;
+    top: 3%;
+    transform: translate(-50%, -50%);
+}
+.home_content .mapa{
+    position: absolute;
+    align-content: center;
+    transform: scale(4); 
+    left: 0;
+    right: 40%;
+    top: 150%;
+    text-align: center;
+}
 .home_content .mapa path{
-    width: 25%;
-    margin: auto;
+    
     stroke: #eee;
     stroke-width: .25;
 }
 .home_content .mapa path:hover{
     fill: #006284;
-    transition: 0.3s;
+    transition: 0.2s;
     cursor: pointer;
 }
