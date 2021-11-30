@@ -4,14 +4,14 @@ import os
 
 d = "/".join(os.getcwd().split("\\"))
 
-def saludo(request):
-  with open(d + "/Proyecto1/plantilas/saludo.html") as Documento_Ext:
+def estadisticas_generales(request):
+  with open(d + "/Proyecto1/plantilas/estadisticas_generales.html") as Documento_Ext:
     Plantilla = Template(Documento_Ext.read())
   Documento_Ext.close()
   return HttpResponse(Plantilla.render(Context()))
 
-def estadisticas(request):
-  with open(d + "/Proyecto1/plantilas/estadisticas.html") as Documento_Ext:
+def regiones(request):
+  with open(d + "/Proyecto1/plantilas/regiones.html") as Documento_Ext:
     Plantilla = Template(Documento_Ext.read())
   Documento_Ext.close()
   return HttpResponse(Plantilla.render(Context()))

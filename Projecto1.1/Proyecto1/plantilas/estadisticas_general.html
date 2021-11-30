@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <title>CovidSearchCL</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href = "{% static 'css/estadistica_general.css'%}">
+</head>
+
+<body>
+    <!-- Barra lateral.-->>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <img src="{% static 'imagenes/Logo_UTFSM.png' %}" alt= "" style="max-width: 25%";>
+                <div class="logo_name">CovidDataCL</div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+            <li>
+
+                <!-- Lista de elementos -->
+                <a href="http://127.0.0.1:8000/estadisticas/">
+                    <i class='bx bx-stats' ></i>
+                    <span class= "links_name">Estadisticas</span>
+                </a>
+                <span class= "tooltip">Estadisticas</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-contact' ></i>
+                    <span class= "links_name">Contacto</span>
+                </a>
+                <span class= "tooltip">Contacto</span>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Contenido Principal-->
+    <div class="home_content">
+        <div class="titulo">titulo<div id="tooltip"></div> <div id="tooltip"></div><div id="tooltip"></div> </div>
+        
+
+        </div>
+    </section>
+    
+    <script>
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        btn.onclick = function(){
+            sidebar.classList.toggle("active");
+        }
+    </script>
+
+
+</body>
+</html>
