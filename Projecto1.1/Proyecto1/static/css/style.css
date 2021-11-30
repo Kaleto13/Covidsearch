@@ -163,8 +163,20 @@ body{
     stroke: #eee;
     stroke-width: .25;
 }
+
+
+.home_content .mapa path:hover{
+    fill:darkblue;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
 .home_content .mapa path:hover{
     fill: #006284;
-    transition: 0.3s;
+    transition: 0.5s;
+    transform:translateX(30px);
+    transform: scaleY(3);
+    transform: scaleX(3);
     cursor: pointer;
 }
