@@ -135,6 +135,7 @@ body{
     left: 240px;
 }
 /* Todo relacionado al contenido principal */
+
 .home_content{
     position: absolute;
     height: 100%;
@@ -153,16 +154,12 @@ body{
     transform: translate(-50%, -50%);
 }
 .home_content .mapa{
-    position: absolute;
-    align-content: center;
-    transform: scale(4); 
-    left: 0;
-    right: 40%;
-    top: 150%;
+    display: block;
+    margin: auto;
     text-align: center;
+    transform: translateY(160%) scale(4) translateX(-6%);
 }
 .home_content .mapa path{
-    
     stroke: #eee;
     stroke-width: .25;
 }
