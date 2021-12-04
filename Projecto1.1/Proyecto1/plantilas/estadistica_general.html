@@ -42,12 +42,65 @@
     
     <!-- Contenido Principal-->
     <div class="home_content">
-        <div class="titulo">titulo<div id="tooltip"></div> <div id="tooltip"></div><div id="tooltip"></div> </div>
-        
+    
+    <!--
+    <div class="titulo">titulo
+        <div id="tooltip">
+
+        </div> 
+        <div id="tooltip">
 
         </div>
-    </section>
-    
+        <div id="tooltip">
+
+        </div> 
+    </div>
+--> <h5 class="titulo">Poblacion contagiada</h5>   
+        <section class="container_grafico">
+            <div class="grafico"></div>
+            <div class="container_leyenda">
+                <span class="leyenda_all">
+                    <span class="color_1"></span>
+                    <p class="dato">Poblacion no contagiada: 99,932%</p>
+                </span>
+                <span class="leyenda_all">
+                    <span class="color_2"></span>
+                    <p class="dato">Casos activos: 0,068%</p>
+                </span>
+                <p class="total">Total 19.351.711</p>
+            </div>
+        </section>
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <div id="piechart" style="width: 200px; height: 200px;"></div>
+
+
     <script>
         let btn = document.querySelector("#btn");
         let sidebar = document.querySelector(".sidebar");
