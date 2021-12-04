@@ -115,7 +115,7 @@ def PasoAPaso():
 
 
 
-#print(CasosTotalesPorRegion(), '\n')
-print(TotalNacionalesDiarios(), '\n')
+print(CasosTotalesPorRegion(), '\n')
+#print(TotalNacionalesDiarios(), '\n')
 #print(PCRPorRegion(), '\n')
 #print(PasoAPaso(), '\n')
