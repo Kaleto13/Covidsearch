@@ -184,7 +184,7 @@ body{
 .home_content .mapa{
     margin: auto;
     text-align: center;
-    transform: translateY(210%) scale(5) translateX(-3%);
+    transform: translateY(210%) scale(4) translateX(-3%);
 }
 #tooltip {
     padding: 10px;
@@ -198,6 +198,7 @@ body{
 .home_content .mapa path{
     stroke: #eee;
     stroke-width: .25;
+    pointer-events: none;
 }
 .home_content .mapa path:hover{
     fill: #006284;
