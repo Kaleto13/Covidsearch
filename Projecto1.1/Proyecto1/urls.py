@@ -20,7 +20,7 @@ from Proyecto1.view import estadisticas_generales, regiones, XV_Arica
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', regiones),
-    path('estadisticas/', estadisticas_generales),
+    path('Estadisticas/', estadisticas_generales),
     #Regiones
     path('Arica-y-Parinacota', XV_Arica)
     ] 
