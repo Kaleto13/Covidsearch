@@ -1,15 +1,15 @@
 var xlsData = {
-    "XV - Arica y Parinacota": "Success!",
+    "XV - Arica y Parinacota": "Success! Bruh you cracked the code",
 }
 
-$('object')[0].addEventListener('load', function() {
+$('.home_content .mapa')[0].addEventListener('load', function() {
 
-    $('#XV - Arica y Parinacota', this.contentDocument).on({
+    $('.Arica #AricaPath', this.contentDocument).on({
         'mouseenter': function() {
-            $('#hover .data').text(xlsData['XV - Arica y Parinacota']);
+            $('.home_content .analisis #data').text(xlsData['XV - Arica y Parinacota']);
         },
         'mouseleave': function() {
-            $('#hover .data').html('&nbsp;');
+            $('.home_content .analisis #data').html('');
         }
     });
 

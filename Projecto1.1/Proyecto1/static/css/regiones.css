@@ -154,14 +154,16 @@ body{
     color: black;
     width: 100%;
     height: 7%;
+    top: 10px;
     text-align: center;
+    margin-top: 15px
 }
 .home_content .analisis{
     top: 20px;
     width: 40%;
-    left: 59.5%;
-    height: 92%;
-
+    left: 57%;
+    height: 90%;
+    float: right;
     position: sticky;
 
     padding: 12px;
@@ -171,29 +173,21 @@ body{
     background: #2098c0;
     line-height: 20px;
 }
-#tooltip {
-    padding: 10px;
-    z-index: 2;
-    border: #11101d 1px;
-    border-radius: 6px;
-    background: #fff;
-    line-height: 20px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
-    opacity: 1;
-  }
 
 .home_content .mapa{
+    position: relative;
     border-radius: 6px;
     width: 58.5%;
     height: 2885.95px;
-    position: sticky;
     background-color: #11101d;
+    float: left;
+    margin-bottom: 5px;
 }
 
 .home_content .mapa svg{
     display: block;
     margin: auto;
-    transform: scale(4) translateY(38%);
+    transform: scale(4) translateY(39%);
 }
 
 .home_content .mapa path{
@@ -206,3 +200,14 @@ body{
     cursor: pointer;
 }
 
+#tooltip {
+    
+    padding: 10px;
+    z-index: 6;
+    border: #11101d 1px;
+    border-radius: 6px;
+    background: #fff;
+    line-height: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+    opacity: 1;
+  }
