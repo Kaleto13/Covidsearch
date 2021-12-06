@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+    from datetime import datetime, timedelta
 from requests import get
 
 
@@ -115,7 +115,10 @@ def PasoAPaso():
 
 
 
-print(CasosTotalesPorRegion(), '\n')
-#print(TotalNacionalesDiarios(), '\n')
+#print(CasosTotalesPorRegion(), '\n')
+print(TotalNacionalesDiarios(), '\n') 
 #print(PCRPorRegion(), '\n')
 #print(PasoAPaso(), '\n')
+
+#necesitamos: Fecha, Casos nuevos totales, casos totales, fallecidos, casos activos confirmados
+#Todo esto parte del producto 5 del github
