@@ -37,28 +37,27 @@ def TotalNacionalesDiarios():
     raw = req.text
     raw = raw.split('\n')
 
-    #arch = open('~TotalNacionalesDiarios.csv', 'w')
-
-
-
     for i in range(len(raw)):
         
         raw[i] = raw[i].split(',')
 
     j = ''
-
     for i in range(len(raw)-1):
         
         x = len(raw[i])
-        j += str(raw[i][0]) + ',' + str(raw[i][x-1]) + '\n'
+        j += str(raw[i][0]) + ',' + str(raw[i][x-1]) + ';'
+    j = j.strip().split(';')
+    for i in range(len(j)):
+        j[i] = j[i].split(',')
 
-
-        #print()
-        #arch.write(str(raw[i][0]) + ',' + str(raw[i][x-1]) + '\n')
-
-    #arch.close()
-    
-    return j
+    #dicccc
+    ret = {}
+    for l in j:
+        if len(l) == 2:
+            ret[str(l[0])] = l[1]
+        else:
+            ret[str(l[0])] = ''
+    return ret
 
 
 #DP7 PCR POR REGION     SE DEVUELVEN TODAS LAS FECHAS YA QUE LA INFORMACION DEL DIA ES BASTANTE INUTIL
