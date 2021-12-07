@@ -187,11 +187,31 @@ body{
     padding: 12px;
     z-index: 2;
     border-radius: 6px;
-    background: #ae759f;
+    background: var(--color2);
     line-height: 20px;
     margin-right: 20px;
 }
 
+.home_content .analisis .grafico{
+    width: 95%;
+    margin: 5%;
+    height: 47%;
+}
+
+.home_content .analisis .seccion{
+    background-color: #006284;
+    float: left;
+    border-radius: 6px;
+    width: 33.8vh;
+    height: 10vh;
+    background-color: #d8b4e2;
+    margin: 2%;
+}
+
+.home_content .analisis .seccion .semititulo{
+    vertical-align: middle;
+    font-family: 'Readex Pro', sans-serif;
+}
 .home_content .mapa{
     position: relative;
     border-radius: 6px;
@@ -205,6 +225,7 @@ body{
     display: block;
     margin: auto;
     transform: scale(4) translateY(39%);
+    width: 100vh;
 }
 
 .home_content .mapa path{
