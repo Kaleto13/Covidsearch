@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 
+}
+:root{
+    --color1:#210b2c;
+    --color2:#55286f;
+    --color3:#bc96e6;
+    --color4:#d8b4e2;
+    --color5:#ae759f;
+    
 }
 body{
     position: relative;
@@ -18,7 +27,7 @@ body{
     top: 0;
     left: 0;
     width: 80px;
-    background: #11101d;
+    background: #210b2c;
     padding: 6px 14px;
     transition: all 0.3s ease;
 }
@@ -88,7 +97,7 @@ body{
     opacity: 0;
     pointer-events: none;
     display: block;
-    z-index: 2;
+    z-index: 100;
     
 }
 .sidebar.active ul li .tooltipNav{
@@ -113,7 +122,7 @@ body{
 
 }
 .sidebar ul li a:hover{
-    color: #11101d;
+    color: #210b2c;
     background-color: #fff;
 }
 .sidebar ul li i{
@@ -147,39 +156,47 @@ body{
     transition: all 0.3s ease;
     overflow: auto;
 }
-.home_content .titulo{
+.home_content .analisis .titulo{
+    display: table-cell;
+    vertical-align: middle;
     position: static;
-    font-size: 38px;
-    font-weight: 500;
+    font-size: 200%;
     color: black;
-    width: 100%;
-    height: 7%;
-    top: 10px;
+    width: 100vh;
+    height: 15vh;
     text-align: center;
-    margin-top: 15px
+    background-color: #d8b4e2;
+    border-radius: 6px;
+    font-family: 'Readex Pro', sans-serif;
+    line-height : 100%;
 }
+
+.home_content .home_content .analisis .data{
+    position: relative;
+    margin: auto;
+}
+
 .home_content .analisis{
     top: 20px;
-    width: 40%;
+    width: 41%;
     left: 57%;
-    height: 90%;
+    height: 95%;
     float: right;
     position: sticky;
 
     padding: 12px;
     z-index: 2;
-    border: #11101d 1px;
     border-radius: 6px;
-    background: #2098c0;
+    background: #ae759f;
     line-height: 20px;
+    margin-right: 20px;
 }
 
 .home_content .mapa{
     position: relative;
     border-radius: 6px;
-    width: 58.5%;
+    width: 50%;
     height: 2885.95px;
-    background-color: #11101d;
     float: left;
     margin-bottom: 5px;
 }
@@ -201,10 +218,9 @@ body{
 }
 
 #tooltip {
-    
     padding: 10px;
     z-index: 6;
-    border: #11101d 1px;
+    border: #210b2c 1px;
     border-radius: 6px;
     background: #fff;
     line-height: 20px;
