@@ -13,7 +13,8 @@ var xlsData = {
     "IX": "Región de La Araucanía",
     "XIV": "Región de Los Ríos",
     "X": "Región de Los Lagos",
-    "XI": "Región Aysén del General Carlos Ibáñez del Campo"
+    "XI": "Región Aysén del General Carlos Ibáñez del Campo",
+    "XII": "Región de Magallanes y la Antártica Chilena"
 }
 
 $('.home_content .mapa')[0].addEventListener('load', function() {
