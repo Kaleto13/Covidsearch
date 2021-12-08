@@ -195,22 +195,40 @@ body{
 .home_content .analisis .grafico{
     width: 95%;
     margin: 5%;
-    height: 47%;
+    height: 45%;
 }
 
-.home_content .analisis .seccion{
-    background-color: #006284;
-    float: left;
+.home_content .analisis .row{
+    display: flex;
+    justify-content: center;
+    height: 13%;
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.home_content .analisis .row .seccion{
     border-radius: 6px;
-    width: 33.8vh;
-    height: 10vh;
     background-color: #d8b4e2;
-    margin: 2%;
+    margin: 1%;
+    height: 100%;
+    width: 100%;
 }
 
-.home_content .analisis .seccion .semititulo{
-    vertical-align: middle;
+.home_content .analisis .row .seccion .semititulo{
+    text-align: center;
     font-family: 'Readex Pro', sans-serif;
+    padding-top: 1%;
+}
+
+.home_content .analisis .seccion .cifra{
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    font-size: 200%;
+    padding-top: 7%;
+    width: 100%;
+    height: 40%;
 }
 .home_content .mapa{
     position: relative;
