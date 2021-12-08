@@ -18,22 +18,36 @@ var xlsData = {
 }
 
 $('.home_content .mapa')[0].addEventListener('load', function() {
-
     $('.Arica #AricaPath', this.contentDocument).on({
         'mouseenter': function() {
             $('.home_content .analisis .titulo').text(xlsData['XV']);
+            $('.home_content .analisis .row .seccion #CifraPCR').text("691")
+            $('.home_content .analisis .row .seccion #CifraActivos').text("70")
+            $('.home_content .analisis .row .seccion #CifraTotales').text("28617")
+            $('.home_content .analisis .row .seccion #CifraNuevos').text("9")
+
         },
     });
 
     $('.Tarapaca #TarapacaPath', this.contentDocument).on({
         'mouseenter': function() {
             $('.home_content .analisis .titulo').text(xlsData['I']);
+            $('.home_content .analisis .row .seccion #CifraPCR').text("1453")
+            $('.home_content .analisis .row .seccion #CifraActivos').text("181")
+            $('.home_content .analisis .row .seccion #CifraTotales').text("44298")
+            $('.home_content .analisis .row .seccion #CifraNuevos').text("25")
         },
     });
 
     $('.Antofagasta #AntofagastaPath', this.contentDocument).on({
         'mouseenter': function() {
-            $('.home_content .analisis .titulo').text(xlsData['II']);
+            $('.home_content .analisis .titulo').text(xlsData['II']);            
+            $('.home_content .analisis .row .seccion #CifraPCR').text("2037")
+            $('.home_content .analisis .row .seccion #CifraActivos').text("392")
+            $('.home_content .analisis .row .seccion #CifraTotales').text("65767")
+            $('.home_content .analisis .row .seccion #CifraNuevos').text("39")
+
+            
         },
     });
 
