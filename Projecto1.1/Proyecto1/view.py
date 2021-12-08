@@ -25,3 +25,16 @@ def XV_Arica(request):
     Plantilla = Template(Documento_Ext.read())
   Documento_Ext.close()
   return HttpResponse(Plantilla.render(Context()))
+
+
+#JSON
+def DataProduct4(request):
+  with open(d + "/API/json/DP4.json") as Documento_Ext:
+    Plantilla = Template(Documento_Ext.read())
+  Documento_Ext.close()
+  return HttpResponse(Plantilla.render(Context()))
+def DataProduct7(request):
+  with open(d + "/API/json/DP7.json") as Documento_Ext:
+    Plantilla = Template(Documento_Ext.read())
+  Documento_Ext.close()
+  return HttpResponse(Plantilla.render(Context()))
