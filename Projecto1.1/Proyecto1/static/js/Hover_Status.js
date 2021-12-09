@@ -17,28 +17,35 @@ var xlsData = {
     "XII": "Región de Magallanes y la Antártica Chilena"
 }
 
-var DataPCR, DataDP4, DataDP5;
+var DataDP4, DataPCR, DataDP5;
 
 fetch("./DP4.json")
     .then(res => res.json())
     .then(data => DataDP4 = data)
-fetch("./DP5.json")
-    .then(res => res.json())
-   .then(data => DataDP5 = data)
 fetch("./DP7.json")
     .then(res => res.json())
     .then(data => DataPCR = data)
-
+fetch("./DP5.json")
+    .then(res => res.json())
+    .then(data => DataDP5 = data)
 
 // ARREGLAR!!!
-$('.home_content .menuRapido .row .seccionB #ContagiosNuevos').text("+" + DataDP5["Casosnuevostotales"]);
-$('.home_content .menuRapido .row .seccionB #CifraActivosNacional').text(DataDP5["Casosactivos"]);
-$('.home_content .menuRapido .row .seccionB #Fallecidos').text("+" + DataDP5["TotalFallecidos"]);
-$('.home_content .menuRapido .row .seccionB #CifraFallecidosNacional').text(DataDP5["Fallecidos"]);
-$('.home_content .menuRapido .row3 #ContagioTotalNacional').text(DataDP5["Casostotales"]);
+
 
 document.getElementById('preview').style.display = 'none';
 document.getElementById('menuR').style.display = 'block';
+
+
+$('.home_content')[0].addEventListener('load', function() {
+    $(document).ready(function(){
+        $('.home_content .menuRapido .row4 .semititulo').text("Cifras nacionales del día " + DataDP5["Fecha"])
+        $('.home_content .menuRapido .row3 #ContagioTotalNacional').text(DataDP5["casostotales"])
+        $('.home_content .menuRapido .row .seccionB #ContagiosNuevos').text("+" + DataDP5["casosnuevostotales"])
+        $('.home_content .menuRapido .row .seccionB #CifraActivosNacional').text(DataDP5["casosactivos"])
+        $('.home_content .menuRapido .row .seccionB #Fallecidos').text("+" + DataDP5["fallecidosnuevos"])
+        $('.home_content .menuRapido .row .seccionB #CifraFallecidosNacional').text(DataDP5["fallecidos"])
+    });
+}, true);
 
 $('.home_content .mapa')[0].addEventListener('load', function() {
     $('.Arica #AricaPath', this.contentDocument).on({

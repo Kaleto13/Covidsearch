@@ -187,53 +187,16 @@ body{
 }
 
 .home_content .menuRapido .contenedor{
-    display: table-cell;
-    position: static;
-    font-size: 200%;
+    font-size: 170%;
     color: black;
-    width: 100vh;
+    width: 100%;
+    padding: 0.1%;
     height: auto;
     text-align: center;
     background-color: #d8b4e2;
     border-radius: 6px;
     font-family: 'Readex Pro', sans-serif;
     line-height : 100%;
-    margin-bottom: 6%;
-}
-
-.home_content .menuRapido .row2{
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 20%;
-    margin-top: 0.5%;
-    margin-bottom: 8%;
-}
-
-.home_content .menuRapido .row2 .contenedor2 .instrucciones{
-    font-weight: 900;
-    position: static;
-    font-family: 'Readex Pro', sans-serif;
-    background-color: #d8b4e2;
-    border-radius: 6px;
-    font-size: 60%;
-    width: 100%;
-    height: 95%;
-    padding: 1%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    font-size: 90%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-}
-
-.home_content .menuRapido .row2 .imagenAyuda{
-    position: static;
-    border-radius: 6px;
-    margin-top: 1%;
-    margin-left: 1%;
-    margin-left: 2%;
 }
 
 .home_content .menuRapido .contenedor .titulo2{
@@ -248,50 +211,109 @@ body{
     line-height : 100%;
 }
 
-.home_content .menuRapido .row{
+.home_content .menuRapido .row2{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    margin-top: 1%;
+}
+
+.home_content .menuRapido .row2 .instrucciones{
+    font-weight: 900;
+    font-family: 'Readex Pro', sans-serif;
+    background-color: #d8b4e2;
+    border-radius: 6px;
+    order: 1;
+    font-size: 95%;
+    text-align: center;
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+    margin: 0.7%;
+}
+
+.home_content .menuRapido .row2 .imagenAyuda{
+    border-radius: 6px;
+    margin: 0.7%;
+    order: 2;
+    
+}
+
+.home_content .menuRapido .columnas3{
+    position: relative;
+    margin: 0 auto -60px;
+    top: 3%;
+    width: 90%;
+    height: 80%;
+}
+
+.home_content .menuRapido .columnas3 .row{
     display: flex;
     justify-content: center;
-    height: 11%;
+    height: 13%;
     width: 100%;
     align-self: auto
 }
 
-.home_content .menuRapido .row .seccionB{
+.home_content .menuRapido .columnas3 .row .seccionB{
     border-radius: 6px;
     background-color: #d8b4e2;
     width: 100%;
-    height: 84%;
+    height: 89%;
     margin: 1%;
 }
 
-.home_content .menuRapido .row .seccionB .semititulo, .home_content .menuRapido .row3 .semititulo{
+.home_content .menuRapido .columnas3 .row .seccionB .semititulo, .home_content .menuRapido .columnas3 .row3 .semititulo{
     text-align: center;
     font-family: 'Readex Pro', sans-serif;
     padding-top: 1%;
 }
-.home_content .menuRapido .row .seccionB .cifra{
+.home_content .menuRapido .columnas3 .row .seccionB .cifra, .home_content .menuRapido .columnas3 .row3 .cifra{
     font-family: 'Readex Pro', sans-serif;
     font-weight: 800;
     text-align: center;
-    font-size: 200%;
-    padding-top: 7%;
-    width: 100%;
-    height: 10%;
+    font-size: 50%;
+    font-size: 150%;
+    margin-top: 2%;
 }
-
-.home_content .menuRapido .row .seccionB .cifra #Fallecidos, .home_content .menuRapido .row .seccionB .cifra #ContagioTotalNacional{
+.home_content .menuRapido .columnas3 .row .seccionB .cifraF{
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    font-size: 50%;
+    font-size: 150%;
+    margin-top: 2%;
     color: red;
 }
 
-.home_content .menuRapido .row3{
+.home_content .menuRapido .columnas3 .row3{
     margin: 1%;
     width: 98%;
-    height: 10%;
+    height: 13%;
     border-radius: 6px;
     background-color: #d8b4e2;
     text-align: center;
     font-family: 'Readex Pro', sans-serif;
 }
+
+.home_content .menuRapido .columnas3 .row4{
+    margin: 2%;
+}
+
+.home_content .menuRapido .columnas3 .row4 .semititulo{
+    color: white;
+    font-family: 'Readex Pro', sans-serif;
+    text-align: center;
+    font-size: 130%;
+}
+
+
+
+
+
+
+
 
 
 .home_content .analisis .titulo{

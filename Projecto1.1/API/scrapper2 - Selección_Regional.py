@@ -100,8 +100,6 @@ def NacionalDiario():
     return "Done!"
 
 # 16 Regiones
-
-#PCRPorRegion()
 PCRPorRegion()
 CasosTotalesPorRegion()
 NacionalDiario()

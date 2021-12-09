@@ -20,6 +20,21 @@ Diccionario_Regiones= {
     "Magallanes":"XII"
 }
 
+meses = {
+    "01":"enero",
+    "02":"febrero",
+    "03":"marzo",
+    "04":"abril",
+    "05":"mayo",
+    "06":"junio",
+    "07":"julio",
+    "08":"agosto",
+    "09":"septiembre",
+    "10":"octubre",
+    "11":"noviembre",
+    "12":"diciembre"
+}
+
 d = "/".join(os.getcwd().split("\\"))
 dCSV= d + "/Projecto1.1/API/csv/" 
 dJSON = d + "/Projecto1.1/API/json/"
@@ -66,8 +81,16 @@ def DataProduct5CSVtoJSON():
     lectorCSV = csv.DictReader(arch)
     for fila in lectorCSV:
         for Elemento in fila:
-            if Elemento != "Region":
-                data[Elemento] = fila[Elemento]    
+            if Elemento == "Fecha":
+                ano, mes, dia = fila[Elemento].split("-")
+                plantilla = "{} de {}, {}"
+                if dia[0] == "0":
+                    dia = dia[1]
+                fecha = plantilla.format(dia, meses[mes], ano)
+                data[Elemento] = fecha
+            else:
+                Seleccionado = Elemento.lower()
+                data[Seleccionado] = fila[Elemento]  
     Nombre = Archivo.split(".")
     arch2 = open(dJSON + Nombre[0] + ".json", "w")
     arch2.write(json.dumps(data, indent=4))
