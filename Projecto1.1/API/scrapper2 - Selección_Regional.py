@@ -15,7 +15,7 @@ def PCRPorRegion():
 
     arch = open(d + "/Projecto1.1/API/csv/DP7raw.csv","wb")
     arch.write(req)  
-    arch.close
+    arch.close()
 
     arch = open(d + "/Projecto1.1/API/csv/DP7raw.csv","r", encoding="utf-8")
     arch2 = open(d + "/Projecto1.1/API/csv/DP7.csv","w", encoding="utf-8")
@@ -59,12 +59,49 @@ def CasosTotalesPorRegion():
         if Linea[0] != "Se desconoce región de origen" and Linea[0] != "Total":
             arch2.write(",".join(Linea) + "\n")
 
-    return req
+    return "Done!"
 
+#DP5 Data Product 5 - Totales Nacionales Diarios
 
+def NacionalDiario():
+    url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto5/TotalesNacionales_T.csv"
+    # ESTE ARCHIVO ES DE TIPO T
+    req = get(url)
+    req = req.content
 
+    arch = open(d + "/Projecto1.1/API/csv/DP5raw.csv","wb")
+    arch.write(req)  
+    arch.close
+
+    arch = open(d + "/Projecto1.1/API/csv/DP5raw.csv","r", encoding="utf-8")
+    arch2 = open(d + "/Projecto1.1/API/csv/DP5.csv","w", encoding="utf-8")
+    
+    Lista = list(arch)
+    Indices = [0, -2, -1]
+    Fallecido_DiaAnterior = 0
+    for Indice in Indices:
+        Listilla = Lista[Indice]
+        Listilla = Listilla.strip().split(",")
+        Recoleccion = [Listilla[0], Listilla[2], Listilla[4], Listilla[5], Listilla[7]]
+        for Indi2 in range(len(Recoleccion)):
+            if " " in Recoleccion[Indi2 ]:
+                Recoleccion[Indi2] = Recoleccion[Indi2].split(" ")
+                Recoleccion[Indi2] = "".join(Recoleccion[Indi2])
+        Escrito = ",".join(Recoleccion)
+        if Indice == 0:
+            Escrito += ",FallecidosNuevos" + "\n"
+        elif Indice == -2:
+            Escrito += ",0" + "\n"
+            Fallecido_DiaAnterior = int(Listilla[4][:-2])
+        elif Indice == -1:
+            Escrito += "," + str(int(Listilla[4]) - Fallecido_DiaAnterior) + "\n"
+        arch2.write(Escrito)
+        
+    return "Done!"
 
 # 16 Regiones
 
 #PCRPorRegion()
-print(CasosTotalesPorRegion())
+PCRPorRegion()
+CasosTotalesPorRegion()
+NacionalDiario()

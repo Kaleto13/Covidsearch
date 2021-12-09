@@ -156,6 +156,144 @@ body{
     transition: all 0.3s ease;
     overflow: auto;
 }
+
+.home_content .menuRapido{
+    top: 20px;
+    width: 41%;
+    left: 57%;
+    height: 95%;
+    float: right;
+    position: sticky;
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--color2);
+    line-height: 20px;
+    margin-right: 20px;
+    z-index: 12;
+}
+
+.home_content .analisis{
+    top: 20px;
+    width: 41%;
+    left: 57%;
+    height: 95%;
+    float: right;
+    position: sticky;
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--color2);
+    line-height: 20px;
+    margin-right: 20px;
+}
+
+.home_content .menuRapido .contenedor{
+    display: table-cell;
+    position: static;
+    font-size: 200%;
+    color: black;
+    width: 100vh;
+    height: auto;
+    text-align: center;
+    background-color: #d8b4e2;
+    border-radius: 6px;
+    font-family: 'Readex Pro', sans-serif;
+    line-height : 100%;
+    margin-bottom: 6%;
+}
+
+.home_content .menuRapido .row2{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 20%;
+    margin-top: 0.5%;
+    margin-bottom: 8%;
+}
+
+.home_content .menuRapido .row2 .contenedor2 .instrucciones{
+    font-weight: 900;
+    position: static;
+    font-family: 'Readex Pro', sans-serif;
+    background-color: #d8b4e2;
+    border-radius: 6px;
+    font-size: 60%;
+    width: 100%;
+    height: 95%;
+    padding: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 90%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.home_content .menuRapido .row2 .imagenAyuda{
+    position: static;
+    border-radius: 6px;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-left: 2%;
+}
+
+.home_content .menuRapido .contenedor .titulo2{
+    margin: 3%;
+    position: static;
+    font-size: 120%;
+    color: black;
+    width: 94%;
+    height: auto;
+    border-radius: 6px;
+    font-family: 'Readex Pro', sans-serif;
+    line-height : 100%;
+}
+
+.home_content .menuRapido .row{
+    display: flex;
+    justify-content: center;
+    height: 11%;
+    width: 100%;
+    align-self: auto
+}
+
+.home_content .menuRapido .row .seccionB{
+    border-radius: 6px;
+    background-color: #d8b4e2;
+    width: 100%;
+    height: 84%;
+    margin: 1%;
+}
+
+.home_content .menuRapido .row .seccionB .semititulo, .home_content .menuRapido .row3 .semititulo{
+    text-align: center;
+    font-family: 'Readex Pro', sans-serif;
+    padding-top: 1%;
+}
+.home_content .menuRapido .row .seccionB .cifra{
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    font-size: 200%;
+    padding-top: 7%;
+    width: 100%;
+    height: 10%;
+}
+
+.home_content .menuRapido .row .seccionB .cifra #Fallecidos, .home_content .menuRapido .row .seccionB .cifra #ContagioTotalNacional{
+    color: red;
+}
+
+.home_content .menuRapido .row3{
+    margin: 1%;
+    width: 98%;
+    height: 10%;
+    border-radius: 6px;
+    background-color: #d8b4e2;
+    text-align: center;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+
 .home_content .analisis .titulo{
     display: table-cell;
     vertical-align: middle;
@@ -174,22 +312,6 @@ body{
 .home_content .home_content .analisis .data{
     position: relative;
     margin: auto;
-}
-
-.home_content .analisis{
-    top: 20px;
-    width: 41%;
-    left: 57%;
-    height: 95%;
-    float: right;
-    position: sticky;
-
-    padding: 12px;
-    z-index: 2;
-    border-radius: 6px;
-    background: var(--color2);
-    line-height: 20px;
-    margin-right: 20px;
 }
 
 .home_content .analisis .grafico{
@@ -242,7 +364,6 @@ body{
     display: block;
     margin: auto;
     transform: scale(4) translateY(39%);
-    width: 100vh;
 }
 
 .home_content .mapa path{

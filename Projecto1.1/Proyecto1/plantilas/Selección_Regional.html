@@ -57,12 +57,53 @@
         }
     </script>
 
+    
     <!-- Contenido Principal-->
     <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 
-
     <div class="home_content">
-        <div class="analisis"> 
+    
+
+        <div class="menuRapido" id="menuR">
+            <div class = "contenedor">
+                <div class="titulo2"> Bienvenidos a la vista regional de CovidDataCL</div>
+                <div class="logo_central"><img src="{% static 'imagenes/Logo_UTFSM.png' %}" alt= "" style="max-width: 28%";></div>
+            </div>
+
+            <div class="row2">
+                <div class="contenedor2">
+                    <div class="instrucciones">Para empezar con la previsualizaci&oacute;n,<br/> dirija el cursor hacia a una regi&oacute;n.<br/><br/> Haga click en la regi&oacute;n para informaci&oacute;n adicional.</div>
+                </div>
+                <img class="imagenAyuda" src="{% static 'imagenes/sc12.png' %}" alt= "" ;>
+            </div>
+            
+            <div class="row">
+                <div class="seccionB">
+                    <div class="semititulo">Contagios Nuevos</div>
+                    <div class="cifra" id="ContagiosNuevos"></div>
+                </div>
+                <div class="seccionB">
+                    <div class="semititulo">Casos Activos Nacionales</div>
+                    <div class="cifra" id="CifraActivosNacional"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="seccionB">
+                    <div class="semititulo">Fallecidos</div>
+                    <div class="cifra" id="Fallecidos"></div>
+                </div>
+                <div class="seccionB">
+                    <div class="semititulo">Fallecidos Totales</div>
+                    <div class="cifra" id="CifraFallecidosNacional"></div>
+                </div>
+            </div>
+            <div class="row3">
+                <div class="semititulo">Contagios Totales Nacional</div>
+                <div class="cifra" id="ContagioTotalNacional"></div>
+            </div>
+        </div>
+
+        <div class="analisis" id="preview"> 
             <div class="titulo" id="nombre_region">Casos Covid-19 en la Regi&oacute;n</div>
 
             <div class="grafico"></div>
