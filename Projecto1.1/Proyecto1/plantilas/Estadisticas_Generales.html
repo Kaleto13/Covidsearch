@@ -50,73 +50,64 @@
     
     <!-- Contenido Principal-->
     <div class="home_content">
-    
-    <!--
-    <div class="titulo">titulo
-        <div id="tooltip">
+<h5 class="titulo">Estadisitcas generales nacionales</h5>   
 
-        </div> 
-        <div id="tooltip">
+<!-- Grafico casos activos -->
 
-        </div>
-        <div id="tooltip">
-
-        </div> 
-    </div>
---> <h5 class="titulo">Poblacion contagiada</h5>   
-        <section class="container_grafico">
-            <div class="grafico"></div>
-            <div class="container_leyenda">
-                <span class="leyenda_all">
-                    <span class="color_1"></span>
-                    <p class="dato">Poblacion no contagiada: 99,932%</p>
-                </span>
-                <span class="leyenda_all">
-                    <span class="color_2"></span>
-                    <p class="dato">Casos activos: 0,068%</p>
-                </span>
-                <p class="total">Total 19.351.711</p>
-            </div>
-        </section>
-    </div>
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+    function drawChart() {
 
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Dia');
+      data.addColumn('number', 'Casos activos');
 
-        var options = {
-          title: 'My Daily Activities'
-        };
+      data.addRows([
+        [1,  37.8],
+        [2,  30.9],
+        [3,  25.4],
+        [4,  11.7],
+        [5,  11.9],
+        [6,   8.8],
+        [7,   7.6],
+        [8,  12.3],
+        [9,  16.9],
+        [10, 12.8],
+        [11,  5.3],
+        [12,  6.6],
+        [13,  4.8],
+        [14,  4.2]
+      ]);
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-    <div id="piechart" style="width: 200px; height: 200px;"></div>
-
-
-    <script>
-        let btn = document.querySelector("#btn");
-        let sidebar = document.querySelector(".sidebar");
-        btn.onclick = function(){
-            sidebar.classList.toggle("active");
+      var options = {
+        chart: {
+          title: 'Casos activos',
+          subtitle: 'Ultimos 10 dias'
+        },
+        width: 600,
+        height: 300,
+        
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
         }
-    </script>
+      };
 
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
 
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+
+  <div id="line_top_x" style="margin-top: 125px;margin-left: 150px;"></div>
+
+<!-- Grafico casos totales -->
+<!-- Grafico casos recuperados -->
+<!-- Grafico activos vs recuperados -->
+    
 </body>
 </html>
