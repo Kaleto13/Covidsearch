@@ -23,7 +23,6 @@ def PCRPorRegion():
     Lista = list(arch)
     arch2.write(Lista[0])
     arch2.write(Lista[-1])
-    return "Done!"
 
 #DP4 Data Product 4 - Casos totales por región
 def CasosTotalesPorRegion():
@@ -58,8 +57,6 @@ def CasosTotalesPorRegion():
     for Linea in Nuevo_Archivo:
         if Linea[0] != "Se desconoce región de origen" and Linea[0] != "Total":
             arch2.write(",".join(Linea) + "\n")
-
-    return "Done!"
 
 #DP5 Data Product 5 - Totales Nacionales Diarios
 
@@ -96,9 +93,6 @@ def NacionalDiario():
         elif Indice == -1:
             Escrito += "," + str(int(Listilla[4]) - Fallecido_DiaAnterior) + "\n"
         arch2.write(Escrito)
-        
-    return "Done!"
-
 
 import csv, json
 import os
@@ -155,7 +149,7 @@ def DataProduct7CSVtoJSON():
     Nombre = Archivo.split(".")
     arch2 = open(dJSON + Nombre[0] + ".json", "w")
     arch2.write(json.dumps(data, indent=4))
-    return "Done!"
+    return "DP7 - Done!"
     
 def DataProduct4CSVtoJSON():
     CasosTotalesPorRegion()
@@ -175,7 +169,7 @@ def DataProduct4CSVtoJSON():
     Nombre = Archivo.split(".")
     arch2 = open(dJSON + Nombre[0] + ".json", "w")
     arch2.write(json.dumps(data, indent=4))
-    return "Done!"
+    return "DP4 - Done!"
 
 def DataProduct5CSVtoJSON():
     NacionalDiario()
@@ -184,6 +178,7 @@ def DataProduct5CSVtoJSON():
     data = {}
     arch = open(dCSV + Archivo, "r", encoding="utf-8")
     lectorCSV = csv.DictReader(arch)
+    fecha_salida = ""
     for fila in lectorCSV:
         for Elemento in fila:
             if Elemento == "Fecha":
@@ -192,6 +187,7 @@ def DataProduct5CSVtoJSON():
                 if dia[0] == "0":
                     dia = dia[1]
                 fecha = plantilla.format(dia, meses[mes], ano)
+                fecha_salida = fecha
                 data[Elemento] = fecha
             else:
                 Seleccionado = Elemento.lower()
@@ -199,10 +195,10 @@ def DataProduct5CSVtoJSON():
     Nombre = Archivo.split(".")
     arch2 = open(dJSON + Nombre[0] + ".json", "w")
     arch2.write(json.dumps(data, indent=4))
-    return "Done!"
+    return "DP5 - Done!, fecha de actualización: " + fecha_salida
 
 
 #Presione Run para actualizar las estadisticas de la página selección regional.    
-DataProduct4CSVtoJSON()
-DataProduct7CSVtoJSON()
-DataProduct5CSVtoJSON()
+print(DataProduct4CSVtoJSON())
+print(DataProduct7CSVtoJSON())
+print(DataProduct5CSVtoJSON())
