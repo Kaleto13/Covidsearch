@@ -156,6 +156,158 @@ body{
     transition: all 0.3s ease;
     overflow: auto;
 }
+
+.home_content .menuRapido{
+    top: 20px;
+    width: 41%;
+    left: 57%;
+    height: 95%;
+    float: right;
+    position: sticky;
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--color2);
+    line-height: 20px;
+    margin-right: 20px;
+    z-index: 12;
+}
+
+.home_content .analisis{
+    top: 20px;
+    width: 41%;
+    left: 57%;
+    height: 95%;
+    float: right;
+    position: sticky;
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--color2);
+    line-height: 20px;
+    margin-right: 20px;
+}
+
+.home_content .menuRapido .contenedor{
+    font-size: 170%;
+    color: black;
+    width: 100%;
+    padding: 0.1%;
+    height: auto;
+    text-align: center;
+    background-color: #d8b4e2;
+    border-radius: 6px;
+    font-family: 'Readex Pro', sans-serif;
+    line-height : 100%;
+}
+
+.home_content .menuRapido .contenedor .titulo2{
+    margin: 3%;
+    position: static;
+    font-size: 120%;
+    color: black;
+    width: 94%;
+    height: auto;
+    border-radius: 6px;
+    font-family: 'Readex Pro', sans-serif;
+    line-height : 100%;
+}
+
+.home_content .menuRapido .row2{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    margin-top: 1%;
+}
+
+.home_content .menuRapido .row2 .instrucciones{
+    font-weight: 900;
+    font-family: 'Readex Pro', sans-serif;
+    background-color: #d8b4e2;
+    border-radius: 6px;
+    order: 1;
+    font-size: 95%;
+    text-align: center;
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+    margin: 0.7%;
+}
+
+.home_content .menuRapido .row2 .imagenAyuda{
+    border-radius: 6px;
+    margin: 0.7%;
+    order: 2;
+    
+}
+
+.home_content .menuRapido .columnas3{
+    position: relative;
+    margin: 0 auto -60px;
+    top: 3%;
+    width: 90%;
+    height: 80%;
+}
+
+.home_content .menuRapido .columnas3 .row{
+    display: flex;
+    justify-content: center;
+    height: 13%;
+    width: 100%;
+    align-self: auto
+}
+
+.home_content .menuRapido .columnas3 .row .seccionB{
+    border-radius: 6px;
+    background-color: #d8b4e2;
+    width: 100%;
+    height: 89%;
+    margin: 1%;
+}
+
+.home_content .menuRapido .columnas3 .row .seccionB .semititulo, .home_content .menuRapido .columnas3 .row3 .semititulo{
+    text-align: center;
+    font-family: 'Readex Pro', sans-serif;
+    padding-top: 1%;
+}
+.home_content .menuRapido .columnas3 .row .seccionB .cifra, .home_content .menuRapido .columnas3 .row3 .cifra{
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    font-size: 50%;
+    font-size: 150%;
+    margin-top: 2%;
+}
+.home_content .menuRapido .columnas3 .row .seccionB .cifraF{
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    font-size: 50%;
+    font-size: 150%;
+    margin-top: 2%;
+    color: red;
+}
+
+.home_content .menuRapido .columnas3 .row3{
+    margin: 1%;
+    width: 98%;
+    height: 13%;
+    border-radius: 6px;
+    background-color: #d8b4e2;
+    text-align: center;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.home_content .menuRapido .columnas3 .row4{
+    margin: 2%;
+}
+
+.home_content .menuRapido .columnas3 .row4 .semititulo{
+    color: white;
+    font-family: 'Readex Pro', sans-serif;
+    text-align: center;
+    font-size: 127%;
+}
+
 .home_content .analisis .titulo{
     display: table-cell;
     vertical-align: middle;
@@ -176,25 +328,14 @@ body{
     margin: auto;
 }
 
-.home_content .analisis{
-    top: 20px;
-    width: 41%;
-    left: 57%;
-    height: 95%;
-    float: right;
-    position: sticky;
-
-    padding: 12px;
-    z-index: 2;
-    border-radius: 6px;
-    background: var(--color2);
-    line-height: 20px;
-    margin-right: 20px;
-}
-
 .home_content .analisis .grafico{
     width: 95%;
     margin: 5%;
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
     height: 45%;
 }
 
@@ -242,7 +383,6 @@ body{
     display: block;
     margin: auto;
     transform: scale(4) translateY(39%);
-    width: 100vh;
 }
 
 .home_content .mapa path{

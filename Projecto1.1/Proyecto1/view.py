@@ -33,6 +33,11 @@ def DataProduct4(request):
     Plantilla = Template(Documento_Ext.read())
   Documento_Ext.close()
   return HttpResponse(Plantilla.render(Context()))
+def DataProduct5(request):
+  with open(d + "/API/json/DP5.json") as Documento_Ext:
+    Plantilla = Template(Documento_Ext.read())
+  Documento_Ext.close()
+  return HttpResponse(Plantilla.render(Context()))
 def DataProduct7(request):
   with open(d + "/API/json/DP7.json") as Documento_Ext:
     Plantilla = Template(Documento_Ext.read())

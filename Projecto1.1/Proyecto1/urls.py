@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.view import estadisticas_generales, regiones, XV_Arica, DataProduct7, DataProduct4
+from Proyecto1.view import estadisticas_generales, regiones, XV_Arica, DataProduct7, DataProduct4, DataProduct5
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,6 @@ urlpatterns = [
     path('Arica-y-Parinacota', XV_Arica),
     #JSON
     path('DP4.json', DataProduct4),
+    path('DP5.json', DataProduct5),
     path('DP7.json', DataProduct7)
-    
     ] 

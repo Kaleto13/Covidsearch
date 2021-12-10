@@ -57,15 +57,67 @@
         }
     </script>
 
+    
     <!-- Contenido Principal-->
     <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 
-
     <div class="home_content">
-        <div class="analisis"> 
-            <div class="titulo" id="nombre_region">Casos Covid-19 en la Regi&oacute;n</div>
+    
 
-            <div class="grafico"></div>
+        <div class="menuRapido" id="menuR">
+            <div class = "contenedor">
+                <div class="titulo2"> Bienvenidos a la vista regional de CovidDataCL</div>
+                <div class="logo_central"><img src="{% static 'imagenes/Logo_UTFSM.png' %}" alt= "" style="max-width: 25%";></div>
+            </div>
+
+            <div class="row2">
+                <div class="instrucciones">Para empezar con la previsualizaci&oacute;n,<br/> dirija el cursor hacia a una regi&oacute;n.<br/><br/> Haga click en la regi&oacute;n para informaci&oacute;n adicional.</div>
+                <img class="imagenAyuda" src="{% static 'imagenes/sc12.png' %}" alt= "" ;>
+                
+            </div>
+
+            <div class ="columnas3">        
+                <div class="row4">
+                    <div class="semititulo" id="tituloNacional">Si no carga esta informaci&oacute;n, actualize la p&aacute;gina.</div>
+                </div>
+                <div class="row" id="A1">
+                    <div class="seccionB">
+                        <div class="semititulo">Contagios Nuevos</div>
+                        <div class="cifra" id="ContagiosNuevos">-</div>
+                    </div>
+                    <div class="seccionB">
+                        <div class="semititulo">Casos Activos Nacionales</div>
+                        <div class="cifra" id="CifraActivosNacional">-</div>
+                    </div>
+                </div>
+                <div class="row" id="A2">
+                    <div class="seccionB">
+                        <div class="semititulo">Fallecidos</div>
+                        <div class="cifraF" id="Fallecidos">-</div>
+                    </div>
+                    <div class="seccionB">
+                        <div class="semititulo">Fallecidos Totales</div>
+                        <div class="cifraF" id="CifraFallecidosNacional">-</div>
+                    </div>
+                </div>
+                <div class="row3">
+                    <div class="semititulo">Contagios Totales Nacional</div>
+                    <div class="cifra" id="ContagioTotalNacional">-</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="analisis" id="preview"> 
+            <div class="titulo" id="nombre_region"></div>
+
+            <div class="grafico">
+                <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+                <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+                <script src="{% static 'js/graficos_seleccionRegional.js' %}"></script>  
+                <div id="chart_div" style="width: auto; height: auto;"></div>
+            </div>
 
             <div class="row">
                 <div class="seccion" id="Nuevos">
