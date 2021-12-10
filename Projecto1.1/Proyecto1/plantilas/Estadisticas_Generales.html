@@ -8,6 +8,112 @@
     <title>CovidSearchCL</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href = "{% static 'css/estadistica_general.css'%}">
+
+    <!-- Grafico casos activosssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawCasosActivosChart);
+      google.charts.setOnLoadCallback(drawCasosTotalesChart);
+      google.charts.setOnLoadCallback(drawRecuperadosChart);
+      google.charts.setOnLoadCallback(drawRecuperadosvsActivosChart);
+
+    function drawCasosActivosChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Dia');
+      data.addColumn('number', 'Casos activos');
+
+      data.addRows([
+        [1,  37.8],
+        [2,  30.9],
+        [3,  25.4],
+        [4,  11.7],
+        [5,  11.9],
+        [6,   8.8],
+        [7,   7.6],
+        [8,  12.3],
+        [9,  16.9],
+        [10, 12.8]
+      ]);
+
+      var options = {
+        chart: {title: 'Casos activos', subtitle: 'Ultimos 10 dias'},
+        width: 600,height: 300,
+        axes: {x: {0: {side: 'bottom'}}}
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Casos_activos_div'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    /* Grafico casos totalessssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss */
+
+    function drawCasosTotalesChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Dia');
+      data.addColumn('number', 'Casos totales');
+
+      data.addRows([
+        [1,  37.8],
+        [2,  30.9],
+        [3,  25.4],
+        [4,  11.7],
+        [5,  11.9],
+        [6,   8.8],
+        [7,   7.6],
+        [8,  12.3],
+        [9,  16.9],
+        [10, 12.8],
+        [11,  5.3]
+      ]);
+
+      var options = {
+        chart: {title: 'Casos totales', subtitle: 'Ultimos 10 dias'},
+        width: 600,height: 300,
+        axes: {x: {0: {side: 'bottom'}}}
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Casos_totales_div'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    /* Grafico recuperadooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooos */
+
+    function drawRecuperadosChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Dia');
+      data.addColumn('number', 'Recuperados');
+
+      data.addRows([
+        [1,  37.8],
+        [2,  30.9],
+        [3,  25.4],
+        [4,  11.7],
+        [5,  11.9],
+        [6,   8.8],
+        [7,   7.6],
+        [8,  12.3],
+        [9,  16.9],
+      ]);
+
+      var options = {
+        chart: {title: 'Recuperados', subtitle: 'Ultimos 10 dias'},
+        width: 600,height: 300,
+        axes: {x: {0: {side: 'bottom'}}}
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Recuperados_div'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+      }
+  </script>
+    
 </head>
 
 <body>
@@ -34,9 +140,9 @@
             <li>
                 <a href="http://127.0.0.1:8000/Estadisticas/">
                     <i class='bx bx-stats' ></i>
-                    <span class= "links_name">Estad&iacute;sticas Generales</span>
+                    <span class= "links_name">Estad&iacute;sticas</span>
                 </a>
-                <span class= "tooltip">Estad&iacute;sticas Generales</span>
+                <span class= "tooltip">Estad&iacute;sticas</span>
             </li>
             <li>
                 <a href="#">
@@ -50,64 +156,22 @@
     
     <!-- Contenido Principal-->
     <div class="home_content">
-<h5 class="titulo">Estadisitcas generales nacionales</h5>   
 
-<!-- Grafico casos activos -->
+      <!-- Grafico casos activos -->
+      
+      <div id="Casos_activos_div" style="margin-top: 90px;margin-left: 150px;"></div>
 
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['line']});
-      google.charts.setOnLoadCallback(drawChart);
+      <!-- Grafico casos totales -->
 
-    function drawChart() {
+      <div id="Casos_totales_div" style="margin-top: 90px;margin-left: 1100px;"></div>
+      
+      <!-- Grafico casos recuperados -->
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Dia');
-      data.addColumn('number', 'Casos activos');
+      <div id="Recuperados_div" style="margin-top: 180px;margin-left: 1100px;"></div>
 
-      data.addRows([
-        [1,  37.8],
-        [2,  30.9],
-        [3,  25.4],
-        [4,  11.7],
-        [5,  11.9],
-        [6,   8.8],
-        [7,   7.6],
-        [8,  12.3],
-        [9,  16.9],
-        [10, 12.8],
-        [11,  5.3],
-        [12,  6.6],
-        [13,  4.8],
-        [14,  4.2]
-      ]);
+      <!-- Grafico activos vs recuperados -->
 
-      var options = {
-        chart: {
-          title: 'Casos activos',
-          subtitle: 'Ultimos 10 dias'
-        },
-        width: 600,
-        height: 300,
-        
-        axes: {
-          x: {
-            0: {side: 'top'}
-          }
-        }
-      };
-
-      var chart = new google.charts.Line(document.getElementById('line_top_x'));
-
-      chart.draw(data, google.charts.Line.convertOptions(options));
-    }
-  </script>
-
-  <div id="line_top_x" style="margin-top: 125px;margin-left: 150px;"></div>
-
-<!-- Grafico casos totales -->
-<!-- Grafico casos recuperados -->
-<!-- Grafico activos vs recuperados -->
-    
+      <div id="Casos_activos_div" style="margin-top: 180px;margin-left: 150px;"></div>
+      
 </body>
 </html>

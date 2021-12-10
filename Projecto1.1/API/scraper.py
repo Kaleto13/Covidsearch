@@ -97,7 +97,9 @@ def TotalNacionalesDiarios2():
             casos_activos.append([j[0][l], j[5][l]])
             casos_totales.append([j[0][l], j[2][l]])
             n_recuperados.append([j[0][l], j[10][l]])
-    return(casos_activos, casos_totales, n_recuperados)
+    
+    #arch = open(d + "/Projecto1.1/API/csv/ca")
+    return(casos_activos)#, casos_totales, n_recuperados)
             
 
 #DP7 PCR POR REGION     SE DEVUELVEN TODAS LAS FECHAS YA QUE LA INFORMACION DEL DIA ES BASTANTE INUTIL
