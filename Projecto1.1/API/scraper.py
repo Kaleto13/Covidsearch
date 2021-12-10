@@ -49,16 +49,58 @@ def TotalNacionalesDiarios():
     j = j.strip().split(';')
     for i in range(len(j)):
         j[i] = j[i].split(',')
-
+    print(j)
     #dicccc
     ret = {}
     for l in j:
         if len(l) == 2:
-            ret[str(l[0])] = l[1]
+            ret[str(l[0])] = [l[1]]
         else:
             ret[str(l[0])] = ''
     return ret
 
+
+def TotalNacionalesDiarios2():
+    substracting_days = 0
+    while True:
+        current_date = datetime.today()
+        current_date = current_date - timedelta(days=substracting_days)
+        today_date = current_date.strftime('%Y-%m-%d')
+        url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto5/TotalesNacionales.csv"
+        req = get(url)
+
+        if "Not Found" not in req.text:
+            break
+        else:
+            substracting_days += 1
+    raw = req.text
+    raw = raw.split('\n')
+
+    for i in range(len(raw)):
+
+        raw[i] = raw[i].split(',')
+    j = ''
+    for i in range(len(raw)-1):
+
+        x = len(raw[i])
+        j += str(raw[i][0]) + ',' + str(raw[i][x-1]) + ',' + str(raw[i][x-2]) + ',' + str(raw[i][x-3]) + ',' + str(raw[i][x-4]) + ',' + str(raw[i][x-5]) + ',' + str(raw[i][x-6]) + ',' + str(raw[i][x-7]) + ';'
+    j = j.strip().split(';')
+    for i in range(len(j)):
+        j[i] = j[i].split(',')
+    casos_activos = []
+    casos_totales = []
+    n_recuperados = []
+    for l in range(len(j[0])):
+        if l == 0:
+            pass
+        else:
+            casos_activos.append([j[0][l], j[5][l]])
+            casos_totales.append([j[0][l], j[2][l]])
+            n_recuperados.append([j[0][l], j[10][l]])
+    
+    #arch = open(d + "/Projecto1.1/API/csv/ca")
+    return(casos_activos)#, casos_totales, n_recuperados)
+            
 
 #DP7 PCR POR REGION     SE DEVUELVEN TODAS LAS FECHAS YA QUE LA INFORMACION DEL DIA ES BASTANTE INUTIL
 def PCRPorRegion():
@@ -103,93 +145,12 @@ def PasoAPaso():
 
     return j
 
-#DP13 PCD acumulado e informado en el ultimo dia
 
-
-def PCRAcumulado():
-    substracting_days = 0
-    while True:
-        current_date = datetime.today()
-        current_date = current_date - timedelta(days=substracting_days)
-        today_date = current_date.strftime('%Y-%m-%d')
-        url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto17/PCREstablecimiento.csv"
-        req = get(url)
-
-        if "Not Found" not in req.text:
-            break
-        else:
-            substracting_days += 1
-    raw = req.text
-    raw = raw.split('\n')
-
-    for i in range(len(raw)):
-
-        raw[i] = raw[i].split(',')
-
-    j = ''
-    for i in range(len(raw)-1):
-        x = len(raw[i])
-        j += str(raw[i][0])+','+str(raw[i][1])+','+str(raw[i][x-1])+';'
-    j = j.strip().split(';')
-    for i in range(len(j)):
-        j[i] = j[i].split(',')
-    
-    dac = {}
-    lac = []
-    for l in range(len(j[0])):
-        dac[j[0][l]] = []
-        lac.append(j[0][l])
-    
-    for t in range(len(j)):
-        if t == 0:
-            pass
-        else:
-            for f in range(len(j[t])):
-                dac[lac[f]].append(j[t][f])
-    arch = open('DP17-PCREstablecimiento.csv', 'w')
-    for f in dac:
-        arch.write(f+',')
-        for x in dac[f]:
-            arch.write(x+',')
-        arch.write('\n')
-    arch.close()
-    return True
-
-
-def CasosNuevosCumulativo():
-    substracting_days = 0
-    while True:
-        current_date = datetime.today()
-        current_date = current_date - timedelta(days=substracting_days)
-        today_date = current_date.strftime('%Y-%m-%d')
-        url = f"https://github.com/MinCiencia/Datos-COVID19/blob/master/output/producto13/CasosNuevosCumulativo.csv"
-        req = get(url)
-
-        if "Not Found" not in req.text:
-            break
-        else:
-            substracting_days += 1
-    raw = req.text
-    raw = raw.split('\n')
-
-    for i in range(len(raw)):
-
-        raw[i] = raw[i].split(',')
-
-    j = ''
-
-    for i in range(len(raw)-1):
-
-        x = len(raw[i])
-        j += str(raw[i][0]) + ',' + str(raw[i][1]) + ',' + str(raw[i][2]) + ',' + \
-            str(raw[i][3]) + ',' + str(raw[i][4]) + \
-            ',' + str(raw[i][x-1]) + '\n'
-
-    return j
 
 #print(CasosTotalesPorRegion(), '\n')
 #print(TotalNacionalesDiarios(), '\n') 
+print(TotalNacionalesDiarios2(), '\n')
 #print(PCRPorRegion(), '\n')
 #print(PasoAPaso(), '\n')
 #print(PCRAcumulado(), '\n')
-print(CasosNuevosCumulativo(), '\n')
+#print(CasosNuevosCumulativo(), '\n')
