@@ -1,10 +1,8 @@
 # Covidsearch
 En Construcción
 
-- Implementación del mapa principal
 - Implementación de las gráficas necesarias para el proyecto
-- Implementación de las funciones necesarias para el proyecto
-- Modificación de la plantilla
+- Implementación de las páginas de región.
 
-Si se logra los 4 puntos, se modifica este README
+Si se logra los 2 puntos, se modifica este README
 
