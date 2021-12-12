@@ -42,6 +42,69 @@ d = "/".join(os.getcwd().split("\\"))
 dCSV= d + "/Projecto1.1/API/csv/" 
 dJSON = d + "/Projecto1.1/API/json/"
 
+
+#DP1 Data Product 1 y 74 - Casos totales por comuna incremental y Paso en el sistema Paso a Paso (Actualizado 11/12/2021)
+# OBRAS EN ESTA FUNCIÓN
+def ComunasCifras():
+    url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto1/Covid-19.csv"
+    # ESTE ARCHIVO ES DE TIPO ESTANDAR
+    req = get(url)
+    req = req.content
+
+    arch = open(d + "/Projecto1.1/API/csv/DP1raw.csv","wb")
+    arch.write(req)  
+    arch.close()
+
+    arch = open(d + "/Projecto1.1/API/csv/DP1raw.csv","r", encoding="utf-8")
+  
+    data = {}
+    Bandera = False
+    for linea in arch:
+        linea = linea.strip().split(",")
+        Comuna, Region, Cifra = linea[2], linea[0], linea[-2]
+        if Region != "Region":
+            if Diccionario_Regiones[Region] not in data:
+                data[Diccionario_Regiones[Region]] = [["Comuna", "Cifra", "Paso"]]
+            if Cifra[-2:] == ".0":
+                Cifra = Cifra[:-2]
+            if "Desconocido" in Comuna:
+                Comuna = "Desconocido"
+                data[Diccionario_Regiones[Region]].append([Comuna, Cifra, "-"])
+            else:
+                data[Diccionario_Regiones[Region]].append([Comuna, Cifra])
+        else:
+            data["Fecha"] = [["DP1", Cifra]]
+    arch.close()
+    os.remove(d + "/Projecto1.1/API/csv/DP1raw.csv")
+    
+    url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto74/paso_a_paso.csv"
+    req = get(url)
+    req = req.content
+    arch = open(d + "/Projecto1.1/API/csv/DP74raw.csv","wb")
+    arch.write(req)  
+    arch.close()
+    
+    arch = open(d + "/Projecto1.1/API/csv/DP74raw.csv","r", encoding="utf-8")
+    for linea in arch:
+        linea = linea.strip().split(",")
+        Comuna, Region, Paso = linea[3], linea[1], linea[-1]
+        if Region != "region_residencia":
+            i = 0
+            if Region == "La Araucanía":
+                Region = Region[3:]
+            while i < len(data[Diccionario_Regiones[Region]]):
+                Comuna_Lista = data[Diccionario_Regiones[Region]][i]
+                if Comuna in Comuna_Lista and len(data[Diccionario_Regiones[Region]][i]) <= 3:
+                    data[Diccionario_Regiones[Region]][i].append(Paso)
+                i += 1
+        else:
+            data["Fecha"] = [["DP74", Paso]]
+    
+    
+    return data
+
+
+
 #DP7 Data Product 7 - Exámenes PCR por región (Actualizado 10/12/2021)
 def PCRPorRegion():
     url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto7/PCR_T.csv"
@@ -82,7 +145,7 @@ def DataProduct7CSVtoJSON():
             else:
                 Objeto = Diccionario_Regiones[Elemento]
                 if Objeto not in data:
-                    data[Objeto] = [["Fecha", "Dato"]]
+                    data[Objeto] = [["Fecha", "Testeos PCR"]]
                 data[Objeto].append([Fecha_Dato, int(fila[Elemento])])
                 Cantidad += int(fila[Elemento])
             
@@ -100,7 +163,7 @@ def DataProduct7CSVtoJSON():
 #DP4 Data Product 4 - Casos totales por región
 def CasosTotalesPorRegionJSON():
     substracting_days = 0
-    Limite = 7
+    Limite = 10
     Lista_Directorio = []
     Fechas_Directorio = []
     while True and substracting_days < Limite:
@@ -132,21 +195,23 @@ def CasosTotalesPorRegionJSON():
             if Bandera:
                 Bandera = False
             else:
-                Region, Totales, Nuevos, Activos = Linea[0], Linea[1], Linea[8], Linea[13]
+                Region, Totales, Fallecidos, Nuevos, Activos = Linea[0], Linea[1] ,Linea[2], Linea[8], Linea[13]
                 if Region != "Se desconoce región de origen" and Region != "Total":
                     if Diccionario_Regiones[Region] not in data:
                         data[Diccionario_Regiones[Region]] = {
                             "Totales":[], 
+                            "Fallecidos":[],
                             "Nuevos":[], 
                             "Activos":[]}
                     data[Diccionario_Regiones[Region]]["Totales"].append([Fecha, int(Totales)])
+                    data[Diccionario_Regiones[Region]]["Fallecidos"].append([Fecha, int(Fallecidos)])
                     data[Diccionario_Regiones[Region]]["Nuevos"].append([Fecha, int(Nuevos)])
                     data[Diccionario_Regiones[Region]]["Activos"].append([Fecha, int(Activos)])
         Archivo_Analisis.close()       
         os.remove(Archivo)
         Indice_Fecha += 1
     for Region in data:
-        Lista_Categorias = [["Fecha","Casos Totales Acumulados"], ["Fecha","Casos Nuevos Totales",], ["Fecha","Casos Activos Confirmados"]]
+        Lista_Categorias = [["Fecha","Casos Totales"], ["Fecha","Fallecidos"], ["Fecha","Casos Nuevos",], ["Fecha","Casos Activos"]]
         indice = 0
         for Categoria in data[Region]:
             data[Region][Categoria].reverse()

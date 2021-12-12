@@ -15,14 +15,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.view import estadisticas_generales, regiones, XV_Arica, DataProduct7, DataProduct4, DataProduct5
+from Proyecto1.view import estadisticas_generales, regiones, XV_Arica, DataProduct7, DataProduct4, DataProduct5, I_Tarapacá, II_Antofagasta, III_Atacama, IV_Coquimbo, V_Valparaiso, RM_Metropolitana, VI_OHiggins, VII_Maule, XVI_Nuble, VIII_Biobio, IX_Araucania, XIV_LosRios, X_LosLagos, XI_Aysen, XII_Magallanes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', regiones),
     path('Estadisticas/', estadisticas_generales),
     #Regiones
-    path('Arica-y-Parinacota', XV_Arica),
+    path('Arica-y-Parinacota/', XV_Arica),
+    path('Tarapaca/', I_Tarapacá),
+    path('Antofagasta/', II_Antofagasta),
+    path('Atacama/', III_Atacama),
+    path('Coquimbo/', IV_Coquimbo),
+    path('Valparaiso/', V_Valparaiso),
+    path('Metropolitana/', RM_Metropolitana),
+    path('OHiggins/', VI_OHiggins),
+    path('Maule/', VII_Maule),
+    path('Nuble/', XVI_Nuble),
+    path('Biobio/', VIII_Biobio),
+    path('La-Araucania/', IX_Araucania),
+    path('Los-Rios/', XIV_LosRios),
+    path('Los-Lagos/', X_LosLagos),
+    path('Aysen/', XI_Aysen),
+    path('Magallanes/', XII_Magallanes),
     #JSON
     path('DP4.json', DataProduct4),
     path('DP5.json', DataProduct5),

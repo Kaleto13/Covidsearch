@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content= "width=device-width, initial-scale=1.0">
-    <title>CovidDataCL - Arica y Parinacota</title>
+    <title>CovidDataCL - Tarapac&aacute;</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href = "{% static 'css/estadistica_general.css'%}">
 
@@ -23,7 +23,7 @@
 
       function drawCasosActivosChart() {
         $.getJSON('http://127.0.0.1:8000/DP4.json', function(json) {
-            var data = google.visualization.arrayToDataTable(json["XV"]["Activos"]);
+            var data = google.visualization.arrayToDataTable(json["I"]["Activos"]);
             var options = {
                 title: 'Total de Contagios Activos.', titleTextStyle: {fontSize: 18},
                 hAxis: {title: 'Fechas'},
@@ -40,7 +40,7 @@
 
       function drawCasosTotalesChart() {
         $.getJSON('http://127.0.0.1:8000/DP4.json', function(json) {
-            var data = google.visualization.arrayToDataTable(json["XV"]["Totales"]);
+            var data = google.visualization.arrayToDataTable(json["I"]["Totales"]);
             var options = {
                 title: 'Total de Contagios Totales.', titleTextStyle: {fontSize: 18},
                 hAxis: {title: 'Fechas'},
@@ -57,7 +57,7 @@
 
       function drawFallecidosChart() {
         $.getJSON('http://127.0.0.1:8000/DP4.json', function(json) {
-            var data = google.visualization.arrayToDataTable(json["XV"]["Fallecidos"]);
+            var data = google.visualization.arrayToDataTable(json["I"]["Fallecidos"]);
             var options = {
                 title: 'Total de Fallecidos.', titleTextStyle: {fontSize: 18},
                 hAxis: {title: 'Fechas'},
@@ -75,7 +75,7 @@
       function drawPCRChart() {
 
         $.getJSON('http://127.0.0.1:8000/DP7.json', function(json) {
-            var data = google.visualization.arrayToDataTable(json["XV"]);
+            var data = google.visualization.arrayToDataTable(json["I"]);
             var options = {
                 title: 'Total de PCR realizadas.', titleTextStyle: {fontSize: 18},
                 hAxis: {title: 'Fechas'},
@@ -141,7 +141,7 @@
 
     <!-- Contenido Principal-->
     <div class="home_content">
-      <div class="titulo">Estadisticas COVID-19 de la Regi&oacute;n de Arica y Parinacota.</div>
+      <div class="titulo">Estadisticas COVID-19 de la Regi&oacute;n de Tarapac&aacute;.</div>
       <div class="contenedor">
         <!-- Grafico casos activos -->
         
