@@ -1,16 +1,16 @@
 google.charts.load('current', {'packages':['corechart']});
 
 
-function drawChart() {
-    var datos = [
-        ['Year', 'Sales'],
-        ['2013',  1000],
-        ['2014',  1170],
-        ['2015',  660],
-        ['2016',  1030]
-    ]
+var DataDP5
 
-    var data = google.visualization.arrayToDataTable(datos);
+
+function drawChart() {
+    var DataDP5
+    fetch("./DP5.json")
+        .then(res => res.json())
+        .then(data => DataDP5 = data)
+
+    var data = google.visualization.arrayToDataTable(DataDP5["Totales"]);
 
     var Titulo;
     $('.home_content .mapa')[0].addEventListener('load', function() {
@@ -30,4 +30,4 @@ function drawChart() {
     chart.draw(data, options);
 }
 
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart());

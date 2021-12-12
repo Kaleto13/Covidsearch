@@ -10,108 +10,85 @@
     <link rel="stylesheet" href = "{% static 'css/estadistica_general.css'%}">
 
     <!-- Grafico casos activosssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
-
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['line']});
+      google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawCasosActivosChart);
       google.charts.setOnLoadCallback(drawCasosTotalesChart);
-      google.charts.setOnLoadCallback(drawRecuperadosChart);
-      google.charts.setOnLoadCallback(drawRecuperadosvsActivosChart);
+      google.charts.setOnLoadCallback(drawFallecidosChart);
+      google.charts.setOnLoadCallback(drawPCRChart);
+      
+      
 
-    function drawCasosActivosChart() {
+      function drawCasosActivosChart() {
+        $.getJSON('http://127.0.0.1:8000/DP5.json', function(json) {
+          var data = google.visualization.arrayToDataTable(json["Activos"]);
+          var options = {
+            title: 'Total de Contagios Activos.', titleTextStyle: {fontSize: 18},
+            hAxis: {title: 'Fechas'},
+            vAxis: {title: 'Activos'}, 
+            colors: ['#ae759f']
+            //axes: {x: {0: {side: 'bottom'}}}
+          };
+          var chart = new google.visualization.AreaChart(document.getElementById('Casos_activos_div'));
+          chart.draw(data, options);
+        });
+        };
+    
+      /* Grafico casos totales */
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Dia');
-      data.addColumn('number', 'Casos activos');
+      function drawCasosTotalesChart() {
+        $.getJSON('http://127.0.0.1:8000/DP5.json', function(json) {
+          var data = google.visualization.arrayToDataTable(json["Contagios"]);
+          var options = {
+            title: 'Total de Contagios Totales.', titleTextStyle: {fontSize: 18},
+            hAxis: {title: 'Fechas'},
+            vAxis: {title: 'Contagios'}, 
+            colors: ['#c1a4c9']
+            //axes: {x: {0: {side: 'bottom'}}}
+          };
+          var chart = new google.visualization.AreaChart(document.getElementById('Casos_totales_div'));
+          chart.draw(data, options);
+        });
+        }
 
-      data.addRows([
-        [1,  37.8],
-        [2,  30.9],
-        [3,  25.4],
-        [4,  11.7],
-        [5,  11.9],
-        [6,   8.8],
-        [7,   7.6],
-        [8,  12.3],
-        [9,  16.9],
-        [10, 12.8]
-      ]);
+      /* Grafico Fallecidos*/
 
-      var options = {
-        chart: {title: 'Casos activos', subtitle: 'Ultimos 10 dias'},
-        width: 600,height: 300,
-        axes: {x: {0: {side: 'bottom'}}}
-      };
+      function drawFallecidosChart() {
+        $.getJSON('http://127.0.0.1:8000/DP5.json', function(json) {
+          var data = google.visualization.arrayToDataTable(json["Fallecidos"]);
+          var options = {
+            title: 'Total de Fallecidos.', titleTextStyle: {fontSize: 18},
+            hAxis: {title: 'Fechas'},
+            vAxis: {title: 'Contagios'}, 
+            colors: ['red']
+            //axes: {x: {0: {side: 'bottom'}}}
+          };
+          var chart = new google.visualization.AreaChart(document.getElementById('PCR_div'));
+          chart.draw(data, options);
+        });
+        }
 
-      var chart = new google.charts.Line(document.getElementById('Casos_activos_div'));
 
-      chart.draw(data, google.charts.Line.convertOptions(options));
-    }
+        /* Grafico PCR */
 
-    /* Grafico casos totalessssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss */
+      function drawPCRChart() {
 
-    function drawCasosTotalesChart() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Dia');
-      data.addColumn('number', 'Casos totales');
-
-      data.addRows([
-        [1,  37.8],
-        [2,  30.9],
-        [3,  25.4],
-        [4,  11.7],
-        [5,  11.9],
-        [6,   8.8],
-        [7,   7.6],
-        [8,  12.3],
-        [9,  16.9],
-        [10, 12.8],
-        [11,  5.3]
-      ]);
-
-      var options = {
-        chart: {title: 'Casos totales', subtitle: 'Ultimos 10 dias'},
-        width: 600,height: 300,
-        axes: {x: {0: {side: 'bottom'}}}
-      };
-
-      var chart = new google.charts.Line(document.getElementById('Casos_totales_div'));
-
-      chart.draw(data, google.charts.Line.convertOptions(options));
-    }
-
-    /* Grafico recuperadooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooos */
-
-    function drawRecuperadosChart() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Dia');
-      data.addColumn('number', 'Recuperados');
-
-      data.addRows([
-        [1,  37.8],
-        [2,  30.9],
-        [3,  25.4],
-        [4,  11.7],
-        [5,  11.9],
-        [6,   8.8],
-        [7,   7.6],
-        [8,  12.3],
-        [9,  16.9],
-      ]);
-
-      var options = {
-        chart: {title: 'Recuperados', subtitle: 'Ultimos 10 dias'},
-        width: 600,height: 300,
-        axes: {x: {0: {side: 'bottom'}}}
-      };
-
-      var chart = new google.charts.Line(document.getElementById('Recuperados_div'));
-
-      chart.draw(data, google.charts.Line.convertOptions(options));
-      }
+        $.getJSON('http://127.0.0.1:8000/DP7.json', function(json) {
+          var data = google.visualization.arrayToDataTable(json["Total"]);
+          var options = {
+            title: 'Total de PCR realizadas.', titleTextStyle: {fontSize: 18},
+            hAxis: {title: 'Fechas'},
+            vAxis: {title: 'Testeos'}, 
+            colors: ['blue']
+            //axes: {x: {0: {side: 'bottom'}}}
+          };
+          var chart = new google.visualization.AreaChart(document.getElementById('Fallecidos_div'));
+          chart.draw(data, options);
+        });
+        }
+  
   </script>
     
 </head>
@@ -153,25 +130,41 @@
             </li>
         </ul>
     </div>
-    
+    <script>
+      let btn = document.querySelector("#btn");
+      let sidebar = document.querySelector(".sidebar");
+      btn.onclick = function(){
+          sidebar.classList.toggle("active");
+      }
+    </script>
+
+
+
     <!-- Contenido Principal-->
     <div class="home_content">
+      <div class="titulo">Estadisticas Generales de COVID-19 en Chile.</div>
+      <div class="contenedor">
+        <!-- Grafico casos activos -->
+        
+        <div class="celda">
+          <div id="Casos_activos_div" style="width: 95%; height: 300px;"></div>
+        </div>
 
-      <!-- Grafico casos activos -->
-      
-      <div id="Casos_activos_div" style="margin-top: 90px;margin-left: 150px;"></div>
+        <!-- Grafico casos totales -->
 
-      <!-- Grafico casos totales -->
+        <div class="celda">
+          <div id="Casos_totales_div" style="width: 95%; height: 300px;"></div>
+        </div>
+      </div>
 
-      <div id="Casos_totales_div" style="margin-top: 90px;margin-left: 1100px;"></div>
-      
-      <!-- Grafico casos recuperados -->
 
-      <div id="Recuperados_div" style="margin-top: 180px;margin-left: 1100px;"></div>
+      <div class="contenedor">
+        <!-- Grafico casos recuperados -->
+        <div class="celda" ><div id="PCR_div"  style="width: 95%; height: 300px;"> </div></div>
 
-      <!-- Grafico activos vs recuperados -->
+        <!-- Grafico Fallecidos -->
 
-      <div id="Casos_activos_div" style="margin-top: 180px;margin-left: 150px;"></div>
-      
+        <div class="celda" ><div id="Fallecidos_div"  style="width: 95%; height: 300px;"> </div></div>
+      </div>
 </body>
 </html>

@@ -38,7 +38,7 @@ document.getElementById('menuR').style.display = 'block';
 
 $('.home_content')[0].addEventListener('load', function() {
     $(document).ready(function(){
-        var num = parseInt(DataDP5["Fallecidos"][7][1]) - parseInt(DataDP5["Fallecidos"][6][1])
+        var num = parseInt(DataDP5["Fallecidos"][10][1]) - parseInt(DataDP5["Fallecidos"][9][1])
         $('.home_content .menuRapido .row4 .semititulo').text("Cifras nacionales del día " + DataDP5["Resumen"][0] + ", MINSAL.")
         $('.home_content .menuRapido .row3 #ContagioTotalNacional').text(DataDP5["Resumen"][1])
         $('.home_content .menuRapido .row .seccionB #ContagiosNuevos').text("+" + DataDP5["Resumen"][4])
@@ -66,35 +66,35 @@ function parcheRegional(path, titulo, pcr, totales, nuevos, activos){
 $('.home_content .mapa')[0].addEventListener('load', function() {
     
     // XV - Región de Arica y Parinacota
-    parcheRegional('.Arica #AricaPath', nombreRegion['XV'], "+" + DataPCR["XV"]["6"][1], DataDP4["XV"][0], "+" + DataDP4["XV"][1], DataDP4["XV"][2])
+    parcheRegional('.Arica #AricaPath', nombreRegion['XV'], "+" + DataPCR["XV"][10][1], DataDP4["XV"]["Totales"][7][1], "+" + DataDP4["XV"]["Nuevos"][7][1], DataDP4["XV"]["Activos"][7][1])
     // I - Región de Tarapacá
-    parcheRegional('.Tarapaca #TarapacaPath', nombreRegion['I'], "+" + DataPCR["I"][6][1], DataDP4["I"][0], "+" + DataDP4["I"][1], DataDP4["I"][2])
+    parcheRegional('.Tarapaca #TarapacaPath', nombreRegion['I'], "+" + DataPCR["I"][10][1], DataDP4["I"]["Totales"][7][1], "+" + DataDP4["I"]["Nuevos"][7][1], DataDP4["I"]["Activos"][7][1])
     // II - Región de Antofagasta
-    parcheRegional('.Antofagasta #AntofagastaPath', nombreRegion['II'], "+" + DataPCR["II"][6][1], DataDP4["II"][0], "+" + DataDP4["II"][1], DataDP4["II"][2])
+    parcheRegional('.Antofagasta #AntofagastaPath', nombreRegion['II'], "+" + DataPCR["II"][10][1], DataDP4["II"]["Totales"][7][1], "+" + DataDP4["II"]["Nuevos"][7][1], DataDP4["II"]["Activos"][7][1])
     // III - Región de Atacama
-    parcheRegional('.Atacama #AtacamaPath', nombreRegion['III'], "+" + DataPCR["III"][6][1], DataDP4["III"][0], "+" + DataDP4["III"][1], DataDP4["III"][2])
+    parcheRegional('.Atacama #AtacamaPath', nombreRegion['III'], "+" + DataPCR["III"][10][1], DataDP4["III"]["Totales"][7][1], "+" + DataDP4["III"]["Nuevos"][7][1], DataDP4["III"]["Activos"][7][1])
     // IV - Región de Coquimbo
-    parcheRegional('.Coquimbo #CoquimboPath', nombreRegion['IV'], "+" + DataPCR["IV"][6][1], DataDP4["IV"][0], "+" + DataDP4["IV"][1], DataDP4["IV"][2])
+    parcheRegional('.Coquimbo #CoquimboPath', nombreRegion['IV'], "+" + DataPCR["IV"][10][1], DataDP4["IV"]["Totales"][7][1], "+" + DataDP4["IV"]["Nuevos"][7][1], DataDP4["IV"]["Activos"][7][1])
     // V - Región de Valparaiso
-    parcheRegional('.Valparaiso #ValparaisoPath', nombreRegion['V'], "+" + DataPCR["V"][6][1], DataDP4["V"][0], "+" + DataDP4["V"][1], DataDP4["V"][2])
+    parcheRegional('.Valparaiso #ValparaisoPath', nombreRegion['V'], "+" + DataPCR["V"][10][1], DataDP4["V"]["Totales"][7][1], "+" + DataDP4["V"]["Nuevos"][7][1], DataDP4["V"]["Activos"][7][1])
     // RM - Región Metropolitana de Santiago (alias, la peor región de Chile y no es broma.)
-    parcheRegional('.Metropolitana #MetropolitanaPath', nombreRegion['RM'], "+" + DataPCR["RM"][6][1], DataDP4["RM"][0], "+" + DataDP4["RM"][1], DataDP4["RM"][2])
+    parcheRegional('.Metropolitana #MetropolitanaPath', nombreRegion['RM'], "+" + DataPCR["RM"][10][1], DataDP4["RM"]["Totales"][7][1], "+" + DataDP4["RM"]["Nuevos"][7][1], DataDP4["RM"]["Activos"][7][1])
     // VI - Región del Libertador General Bernardo O'Higgins
-    parcheRegional('.OHiggins #OHigginsPath', nombreRegion['VI'], "+" + DataPCR["VI"][6][1], DataDP4["VI"][0], "+" + DataDP4["VI"][1], DataDP4["VI"][2])
+    parcheRegional('.OHiggins #OHigginsPath', nombreRegion['VI'], "+" + DataPCR["VI"][10][1], DataDP4["VI"]["Totales"][7][1], "+" + DataDP4["VI"]["Nuevos"][7][1], DataDP4["VI"]["Activos"][7][1])
     // VII - Región del Maule
-    parcheRegional('.Maule #MaulePath', nombreRegion['VII'], "+" + DataPCR["VII"][6][1], DataDP4["VII"][0], "+" + DataDP4["VII"][1], DataDP4["VII"][2])
+    parcheRegional('.Maule #MaulePath', nombreRegion['VII'], "+" + DataPCR["VII"][10][1], DataDP4["VII"]["Totales"][7][1], "+" + DataDP4["VII"]["Nuevos"][7][1], DataDP4["VII"]["Activos"][7][1])
     // XVI - Región de Ñuble
-    parcheRegional('.Nuble #NublePath', nombreRegion['XVI'], "+" + DataPCR["XVI"][6][1], DataDP4["XVI"][0], "+" + DataDP4["XVI"][1], DataDP4["XVI"][2])
+    parcheRegional('.Nuble #NublePath', nombreRegion['XVI'], "+" + DataPCR["XVI"][10][1], DataDP4["XVI"]["Totales"][7][1], "+" + DataDP4["XVI"]["Nuevos"][7][1], DataDP4["XVI"]["Activos"][7][1])
     // VIII - Región del Biobio
-    parcheRegional('.BioBio #BioBioPath', nombreRegion['VIII'], "+" + DataPCR["VIII"][6][1], DataDP4["VIII"][0], "+" + DataDP4["VIII"][1], DataDP4["VIII"][2])
+    parcheRegional('.BioBio #BioBioPath', nombreRegion['VIII'], "+" + DataPCR["VIII"][10][1], DataDP4["VIII"]["Totales"][7][1], "+" + DataDP4["VIII"]["Nuevos"][7][1], DataDP4["VIII"]["Activos"][7][1])
     // IX - Región de La Araucanía
-    parcheRegional('.Araucania #AraucaniaPath', nombreRegion['IX'], "+" + DataPCR['IX'][6][1], DataDP4['IX'][0], "+" + DataDP4['IX'][1], DataDP4['IX'][2])
+    parcheRegional('.Araucania #AraucaniaPath', nombreRegion['IX'], "+" + DataPCR['IX'][10][1], DataDP4["IX"]["Totales"][7][1], "+" + DataDP4["IX"]["Nuevos"][7][1], DataDP4["IX"]["Activos"][7][1])
     // XIV - Región de Los Ríos
-    parcheRegional('.LosRios #LosRiosPath', nombreRegion['XIV'], "+" + DataPCR['XIV'][6][1], DataDP4['XIV'][0], "+" + DataDP4['XIV'][1], DataDP4['XIV'][2])
+    parcheRegional('.LosRios #LosRiosPath', nombreRegion['XIV'], "+" + DataPCR['XIV'][10][1], DataDP4["XIV"]["Totales"][7][1], "+" + DataDP4["XIV"]["Nuevos"][7][1], DataDP4["XIV"]["Activos"][7][1])
     // X - Región del Biobio
-    parcheRegional('.LosLagos #LosLagosPath', nombreRegion['X'], "+" + DataPCR['X'][6][1], DataDP4['X'][0], "+" + DataDP4['X'][1], DataDP4['X'][2])
+    parcheRegional('.LosLagos #LosLagosPath', nombreRegion['X'], "+" + DataPCR['X'][10][1], DataDP4["X"]["Totales"][7][1], "+" + DataDP4["X"]["Nuevos"][7][1], DataDP4["X"]["Activos"][7][1])
     // XI - Región Aysén del General Carlos Ibáñez del Campo
-    parcheRegional('.Aysen #AysenPath', nombreRegion['XI'], "+" + DataPCR['XI'][6][1], DataDP4['XI'][0], "+" + DataDP4['XI'][1], DataDP4['XI'][2])
+    parcheRegional('.Aysen #AysenPath', nombreRegion['XI'], "+" + DataPCR['XI'][10][1], DataDP4["XI"]["Totales"][7][1], "+" + DataDP4["XI"]["Nuevos"][7][1], DataDP4["XI"]["Activos"][7][1])
     // XII - Región de Magallanes y la Antártica Chilena
-    parcheRegional('.Magallanes #MagallanesPath', nombreRegion['XII'], "+" + DataPCR['XII'][6][1], DataDP4['XII'][0], "+" + DataDP4['XII'][1], DataDP4['XII'][2])
+    parcheRegional('.Magallanes #MagallanesPath', nombreRegion['XII'], "+" + DataPCR['XII'][10][1], DataDP4["XII"]["Totales"][7][1], "+" + DataDP4["XII"]["Nuevos"][7][1], DataDP4["XII"]["Activos"][7][1])
 }, true);
