@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.view import estadisticas_generales, regiones, XV_Arica, DataProduct7, DataProduct4, DataProduct5, I_Tarapacá, II_Antofagasta, III_Atacama, IV_Coquimbo, V_Valparaiso, RM_Metropolitana, VI_OHiggins, VII_Maule, XVI_Nuble, VIII_Biobio, IX_Araucania, XIV_LosRios, X_LosLagos, XI_Aysen, XII_Magallanes
+from Proyecto1.view import estadisticas_generales, regiones, XV_Arica, DataProduct1and74 ,DataProduct7, DataProduct4, DataProduct5, I_Tarapacá, II_Antofagasta, III_Atacama, IV_Coquimbo, V_Valparaiso, RM_Metropolitana, VI_OHiggins, VII_Maule, XVI_Nuble, VIII_Biobio, IX_Araucania, XIV_LosRios, X_LosLagos, XI_Aysen, XII_Magallanes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,6 +39,7 @@ urlpatterns = [
     path('Aysen/', XI_Aysen),
     path('Magallanes/', XII_Magallanes),
     #JSON
+    path('DP1-74.json', DataProduct1and74),
     path('DP4.json', DataProduct4),
     path('DP5.json', DataProduct5),
     path('DP7.json', DataProduct7)

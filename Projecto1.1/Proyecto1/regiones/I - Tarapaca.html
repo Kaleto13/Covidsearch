@@ -13,12 +13,12 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['corechart','table']});
       google.charts.setOnLoadCallback(drawCasosActivosChart);
       google.charts.setOnLoadCallback(drawCasosTotalesChart);
       google.charts.setOnLoadCallback(drawFallecidosChart);
       google.charts.setOnLoadCallback(drawPCRChart);
-      
+      google.charts.setOnLoadCallback(drawTablaChart);
       
 
       function drawCasosActivosChart() {
@@ -85,6 +85,15 @@
             };
             var chart = new google.visualization.AreaChart(document.getElementById('Fallecidos_div'));
             chart.draw(data, options);
+        });
+        }
+
+      function drawTablaChart() {
+
+        $.getJSON('http://127.0.0.1:8000/DP1-74.json', function(json) {
+            var data = google.visualization.arrayToDataTable(json["I"]);
+            var table = new google.visualization.Table(document.getElementById('Tablita'));
+            table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
         });
         }
   
@@ -165,5 +174,7 @@
 
         <div class="celda" ><div id="Fallecidos_div"  style="width: 95%; height: 300px;"> </div></div>
       </div>
+      
+      <div class"tabla" id="Tablita"></div>
 </body>
 </html>
