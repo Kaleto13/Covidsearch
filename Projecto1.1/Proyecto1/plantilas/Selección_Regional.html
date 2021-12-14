@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content= "width=device-width, initial-scale=1.0">
     <title>Vista Regional - CovidDataCL</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href = "{% static 'css/Regiones.css'%}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Readex%20Pro:300,400,600,700">
+    
+    
 </head>
 
 <body>
@@ -111,13 +112,7 @@
         <div class="analisis" id="preview"> 
             <div class="titulo" id="nombre_region"></div>
 
-            <div class="grafico">
-                <!--<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>-->
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
-                <script src="{% static 'js/graficos_seleccionRegional.js' %}"></script>  
-                <div id="chart_div" style="width: auto; height: auto;"></div>
-            </div>
+            <div class="grafico" id="graficos"></div>
 
             <div class="titular" id="tituloRegional">Si no carga esta informaci&oacute;n, actualize la p&aacute;gina.</div>
             <div class="row">
@@ -264,7 +259,10 @@
 
             </svg>
         </div>
+        
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="{% static 'js/graficos_seleccionRegional.js' %}"></script>  
         <script src="{% static 'js/Hover_Status.js' %}"></script>  
     </div>
     

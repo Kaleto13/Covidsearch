@@ -89,7 +89,31 @@
         }
   
   </script>
-    
+  <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href = "{% static 'css/jquery.dataTables.min.css'%}">
+  <script type"text/javascript">
+      $.getJSON('http://127.0.0.1:8000/DP1-74.json', function(json) {
+        var dataSet = json["VI"];
+        $(document).ready(function() {
+            $('#Tabla').DataTable( {
+                data: dataSet,
+                "paging": false,
+                "ordering": true,
+                "bSort": true,
+                "searching": false,
+                columns: [
+                    { title: "Comuna" },
+                    { title: "Poblacion"},
+                    { title: "Contagios Totales \n(fecha: " + json["fechas"][0][1] + ")" },
+                    { title: "Contagios Activos \n(fecha: " + json["fechas"][1][1] + ")" },
+                    { title: "Paso - Urbana \n(fecha: " + json["fechas"][2][1] + ")" },
+                    { title: "Paso - Rural \n(fecha: " + json["fechas"][2][1] + ")" },
+                    { title: "Paso - Total \n(fecha: " + json["fechas"][2][1] + ")" }
+                ]
+            } );
+        });
+    });
+  </script>
 </head>
 
 <body>
@@ -165,5 +189,8 @@
 
         <div class="celda" ><div id="Fallecidos_div"  style="width: 95%; height: 300px;"> </div></div>
       </div>
+      <div class="titulo">Tabla de Datos COVID-19 de la Regi&oacute;n del Libertador General Bernardo O'Higgins.</div>
+      <table class="display cell-border" id="Tabla" width="95%"></table>
+
 </body>
 </html>

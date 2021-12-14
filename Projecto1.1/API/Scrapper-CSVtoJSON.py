@@ -1,9 +1,9 @@
-from typing import List
 from requests import get
 import os
 from datetime import datetime, timedelta
 from requests import get
 import csv, json
+import locale
 
 Diccionario_Regiones= {
     "Arica y Parinacota":"XV",
@@ -22,6 +22,25 @@ Diccionario_Regiones= {
     "Los Lagos":"X",
     "Aysén":"XI",
     "Magallanes":"XII"
+}
+
+Diccionario_Codigo_Region= {
+    "15":"Arica y Parinacota",
+    "01":"Tarapacá",
+    "02":"Antofagasta",
+    "03":"Atacama",
+    "04":"Coquimbo",
+    "05":"Valparaíso",
+    "13":"Metropolitana",
+    "06":"O’Higgins",
+    "07":"Maule",
+    "16":"Ñuble",
+    "08":"Biobío",
+    "09":"Araucanía",
+    "14":"Los Ríos",
+    "10":"Los Lagos",
+    "11":"Aysén",
+    "12":"Magallanes"
 }
 
 meses = {
@@ -46,7 +65,7 @@ dJSON = d + "/Projecto1.1/API/json/"
 
 #DP1 Data Product 1 y 74 - Casos totales por comuna incremental y Paso en el sistema Paso a Paso (Actualizado 11/12/2021)
 # OBRAS EN ESTA FUNCIÓN
-def DataProduct1and74JSON():
+def DataProduct1_74_19JSON():
     url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto1/Covid-19.csv"
     # ESTE ARCHIVO ES DE TIPO ESTANDAR
     req = get(url)
@@ -86,6 +105,25 @@ def DataProduct1and74JSON():
     arch.close()
     os.remove(d + "/Projecto1.1/API/csv/DP74raw.csv")
     
+    # Obtención de DP19
+    
+    url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto19/CasosActivosPorComuna.csv"
+    req = get(url)
+    req = req.content
+    arch = open(d + "/Projecto1.1/API/csv/DP19raw.csv","wb")
+    arch.write(req)  
+    arch.close()
+    
+    arch = open(d + "/Projecto1.1/API/csv/DP19raw.csv","r", encoding="utf-8")
+    arch2 = open(d + "/Projecto1.1/API/csv/DP19.csv","w", encoding="utf-8")
+    for linea in arch:
+        linea = linea.strip().split(",")
+        Codigo_Region, Codigo_Comuna, Comuna, Poblacion, Activos = linea[1], linea[3], linea[2], linea[4], linea[-1]
+        arch2.write(",".join([Codigo_Region, Codigo_Comuna, Comuna, Poblacion, Activos]) + "\n")
+    arch2.close()
+    arch.close()
+    os.remove(d + "/Projecto1.1/API/csv/DP19raw.csv")
+    
     
     data = {"fechas":[]}
     arch = open(d + "/Projecto1.1/API/csv/DP1.csv","r", encoding="utf-8")
@@ -95,18 +133,55 @@ def DataProduct1and74JSON():
         if Region != "Region":
             if "Desconocido" in Comuna:
                 Comuna = "Desconocido"
-                Codigo_Comuna = "-"
-            if Cifra[-2:] == ".0":
-                Cifra = Cifra[:-2]
-            if Codigo_Comuna[0] == "0" and Codigo_Comuna != "":
-                Codigo_Comuna = Codigo_Comuna[1:]
+                Codigo_Comuna = ""
+            if Cifra[-2:] == ".0" and Cifra != "":
+                Cifra = int(Cifra[:-2])
+                Cifra = ",".join(format(Cifra, ",").split(","))
+            if Codigo_Comuna != "":
+                if Codigo_Comuna[0] == "0":
+                    Codigo_Comuna = Codigo_Comuna[1:]
             if Diccionario_Regiones[Region] not in data:
-                data[Diccionario_Regiones[Region]] = [["Comuna", "Codigo Comuna", "Cifra", "Urbana", "Rural", "Total"]]
-            data[Diccionario_Regiones[Region]].append([Comuna, Codigo_Comuna, Cifra, False, False, False])
+                data[Diccionario_Regiones[Region]] = []
+            data[Diccionario_Regiones[Region]].append([Comuna, Codigo_Comuna, Cifra])
         else:
+            Cifra = Cifra.split("-")
+            Cifra = "/".join([Cifra[2] , Cifra[1], Cifra[0]])
             data["fechas"].append(["DP1", Cifra])
     arch.close()
     os.remove(d + "/Projecto1.1/API/csv/DP1.csv")
+    
+    arch = open(d + "/Projecto1.1/API/csv/DP19.csv","r", encoding="utf-8")
+    for linea in arch:
+        linea = linea.strip().split(",")
+        Codigo_Region, Codigo_Comuna, Comuna, Poblacion, Activos = linea[0], linea[1], linea[2], linea[3], linea[4]
+        if Codigo_Region != "Codigo region" and Comuna != "Total":
+            if "Desconocido" in Comuna:
+                Comuna = "Desconocido"
+                Codigo_Comuna = ""
+            if Activos[-2:] == ".0" and Activos != "":
+                Activos = int(Activos[:-2])
+                Activos = ",".join(format(Activos, ",").split(","))
+            if Poblacion[-2:] == ".0" and Poblacion != "":
+                Poblacion = int(Poblacion[:-2])
+                Poblacion = ",".join(format(Poblacion, ",").split(","))
+            if Codigo_Comuna != "":
+                if Codigo_Comuna[0] == "0":
+                    Codigo_Comuna = Codigo_Comuna[1:]
+            i = 0
+            while i < len(data[Diccionario_Regiones[Diccionario_Codigo_Region[Codigo_Region]]]):
+                Lista_Comuna = data[Diccionario_Regiones[Diccionario_Codigo_Region[Codigo_Region]]][i]
+                if Lista_Comuna[1] == Codigo_Comuna:
+                    Lista_Comuna.insert(2, Poblacion)
+                    Elementos = [Activos, "", "", ""]
+                    for Elemento in Elementos:
+                        Lista_Comuna.append(Elemento)
+                i += 1   
+        elif Codigo_Region == "Codigo region":
+            Activos = Activos.split("-")
+            Activos = "/".join([Activos[2] , Activos[1], Activos[0]])
+            data["fechas"].append(["DP19", Activos])
+    arch.close()
+    os.remove(d + "/Projecto1.1/API/csv/DP19.csv")
     
     arch = open(d + "/Projecto1.1/API/csv/DP74.csv","r", encoding="utf-8")
     for linea in arch:
@@ -120,22 +195,28 @@ def DataProduct1and74JSON():
                 Lista_Comuna = data[Diccionario_Regiones[Region]][i]
                 if Lista_Comuna[1] == Codigo_Comuna:
                     if Zona == "Rural":
-                        Lista_Comuna[4] = Paso
-                    if Zona == "Urbana":
-                        Lista_Comuna[3] = Paso
-                    if Zona == "Total":
                         Lista_Comuna[5] = Paso
+                    if Zona == "Urbana":
+                        Lista_Comuna[6] = Paso
+                    if Zona == "Total":
+                        Lista_Comuna[7] = Paso
                 i += 1
         else:
+            Paso = Paso.split("-")
+            Paso = "/".join([Paso[2] , Paso[1], Paso[0]])
             data["fechas"].append(["DP74", Paso])
     arch.close()
     os.remove(d + "/Projecto1.1/API/csv/DP74.csv")
     
+
+    for region in data:
+        for comuna in data[region]:
+            if region != "fechas":
+                del comuna[1]
     arch2 = open(dJSON + "DP1 - DP74.json", "w")
     arch2.write(json.dumps(data, indent=4))
     arch.close()
     arch2.close()
-    
     return "DP1 - DP74 Done!"
 
 
@@ -334,7 +415,7 @@ def DataProduct5CSVtoJSON():
     return "DP5 - Done!, fecha de actualización: " + fecha_salida
 
 #Presione Run para actualizar las estadisticas de la página selección regional. 
-print(DataProduct1and74JSON())   
+print(DataProduct1_74_19JSON())
 print(CasosTotalesPorRegionJSON())
 print(DataProduct7CSVtoJSON())
 print(DataProduct5CSVtoJSON())

@@ -1,33 +1,26 @@
 google.charts.load('current', {'packages':['corechart']});
-
-
-var DataDP5
-
-
-function drawChart() {
-    var DataDP5
-    fetch("./DP5.json")
+google.charts.setOnLoadCallback(drawPCRChart);
+function drawPCRChart(region) {
+    fetch("./DP4.json")
         .then(res => res.json())
-        .then(data => DataDP5 = data)
-
-    var data = google.visualization.arrayToDataTable(DataDP5["Totales"]);
-
-    var Titulo;
-    $('.home_content .mapa')[0].addEventListener('load', function() {
-        $('.Arica #AricaPath', this.contentDocument).on({
-            'mouseenter': function() {
-                Titulo = 'Región de Arica y Parinacota';
-            },
-        });
-    }, true);
-
+        .then(data => DataDP4 = data)
+    var data = google.visualization.arrayToDataTable(DataDP4[region]);
     var options = {
-        hAxis: {title: 'Fechas',  titleTextStyle: {color: '#333'}},
-        vAxis: {minValue: 0}
+        title: 'Total de Contagios Activos.', titleTextStyle: {fontSize: 18},
+        hAxis: {title: 'Fechas'},
+        vAxis: {title: 'Activos'}, 
+        colors: ['#55286f']
+        //axes: {x: {0: {side: 'bottom'}}}
+    };
+    var chart = new google.visualization.AreaChart(document.getElementById('graficos'));
+    chart.draw(data, options);
     };
 
-    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
-}
-
-google.charts.setOnLoadCallback(drawChart());
+$('#graficos')[0].addEventListener('load', function() {
+    $('.Arica #AricaPath', this.contentDocument).on({
+        'mouseenter': function() {
+        // XV - Región de Arica y Parinacota
+        drawPCRChart('XV');
+        },
+    });
+}, true);

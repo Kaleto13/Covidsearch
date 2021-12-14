@@ -118,8 +118,8 @@ def XII_Magallanes(request):
 
 
 #JSON
-def DataProduct1and74(request):
-  with open(d + "/API/json/DP1 - DP74.json") as Documento_Ext:
+def DataProduct1_19_74(request):
+  with open(d + "/API/json/DP1 - DP19 - DP74.json") as Documento_Ext:
     Plantilla = Template(Documento_Ext.read())
   Documento_Ext.close()
   return HttpResponse(Plantilla.render(Context()))
