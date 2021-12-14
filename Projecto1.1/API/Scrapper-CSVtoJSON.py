@@ -86,7 +86,7 @@ def DataProduct1_74_19JSON():
     arch.close()
     os.remove(d + "/Projecto1.1/API/csv/DP1raw.csv")
     
-    # Obtención de DP74
+    # Obtención de DP74, donde se obtiene su csv y se escribe su contenido dentro de un archivo local.
     
     url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto74/paso_a_paso.csv"
     req = get(url)
@@ -124,6 +124,7 @@ def DataProduct1_74_19JSON():
     arch.close()
     os.remove(d + "/Projecto1.1/API/csv/DP19raw.csv")
     
+    # Diccionario donde agrupa los datos sacados directamente del .xsv
     
     data = {"fechas":[]}
     arch = open(d + "/Projecto1.1/API/csv/DP1.csv","r", encoding="utf-8")
@@ -150,6 +151,7 @@ def DataProduct1_74_19JSON():
     arch.close()
     os.remove(d + "/Projecto1.1/API/csv/DP1.csv")
     
+    # 
     arch = open(d + "/Projecto1.1/API/csv/DP19.csv","r", encoding="utf-8")
     for linea in arch:
         linea = linea.strip().split(",")
@@ -222,6 +224,8 @@ def DataProduct1_74_19JSON():
 
 
 #DP7 Data Product 7 - Exámenes PCR por región (Actualizado 10/12/2021)
+
+# Funcion donde consigue el contenido del 
 def PCRPorRegion():
     url = f"https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto7/PCR_T.csv"
     # ESTE ARCHIVO ES DE TIPO T
